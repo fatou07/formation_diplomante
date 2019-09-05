@@ -121,7 +121,7 @@ class pieceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\piece $piece
+     * @param \App\Piece $piece
      *
      * @return \Illuminate\Http\Response
      */
@@ -131,5 +131,9 @@ class pieceController extends Controller
         $piece->delete();
 
         return redirect('/pieces')->with('success', 'Piece Supprimé!');
+     
+    
+      
+    
     }
 }

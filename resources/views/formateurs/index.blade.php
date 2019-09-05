@@ -12,14 +12,7 @@
                 <a href="{{route('pieces.create')}}"><div class="btn btn-warning">Nouveaux formateurs <i class="material-icons">add</i></div></a> 
             </p>
           </div>
-          <div class="col-sm-12">
-
-              @if(session()->get('success'))
-                <div class="alert alert-success">
-                  {{ session()->get('success') }}  
-                </div>
-              @endif
-            </div>
+         
       <thead>
           <tr>
             <td>ID</td>
@@ -66,7 +59,16 @@
           </tr>
           @endforeach
       </tbody>
+      
     </table>
+    <div class="col-sm-12">
+
+      @if(session()->get('success'))
+        <div class="alert alert-success">
+          {{ session()->get('success') }}  
+        </div>
+      @endif
+    </div>
   <div>
   </div>
  

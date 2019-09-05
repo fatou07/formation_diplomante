@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 use App\Specialite;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-use Input;
-use Redirect;
+
 
 class SpecialiteController extends Controller
 {
@@ -50,12 +49,12 @@ class SpecialiteController extends Controller
             
         ]);
 
-        $piece = new Piece([
+        $specialite = new Specialite([
             'nom' => $request->get('nom'),
         'formateurs_idformateurs' => $request->get('formateurs_idformateurs'),
            
         ]);
-        $piece->save();
+        $specialite->save();
         return redirect('/specialites')->with('success', 'Nouvelle Spécialite Enregistrer!');
     }
 
