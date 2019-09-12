@@ -43,7 +43,9 @@ Route::get('/pieces/list', 'PieceController@list')->name('pieces.list');
 Route::get('/pieces/create', 'PieceController@create')->name('pieces.create');
 Route::post('pieces/store','PieceController@store')->name('pieces.store');
 // Route::get('/pieces/edit', 'PieceController@edit')->name('pieces.edit');
-/* Route::delete('piece/delete/{id}', ['as' => 'pieces.delete', 'uses' => 'PieceController@destroy']); */
+Route::get('pieces/delete', ['as' => 'pieces.destroy', 'uses' => 'PieceController@destroy']);  
+Route::delete('pieces/{idpieces}', 'PieceController@destroy')->name('pieces.destroy');  
+
 
 Route::get('pieces/{piece}', ['as' => 'pieces.edit', 'uses' => 'PieceController@edit']);
 

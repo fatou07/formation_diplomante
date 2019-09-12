@@ -46,7 +46,10 @@ class ServiceController extends Controller
     {
           
         $request->validate([
+            
             'nom'=>'required',
+            'adresse'=>'required',
+            'telephone'=>'required',
             
         ]);
 

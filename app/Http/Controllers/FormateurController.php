@@ -48,10 +48,10 @@ class FormateurController extends Controller
             
 		'prenom'=>'required',
 		'date_naissance'=>'required',
-		'lieu_naissance'=>'required',
+		'lieu_naissance'=>'required', 
 		'cni'=>'required',
-		'services'=>'required',
-		'diplomes'=>'required',
+		 'services'=>'required',
+		'diplomes'=>'required', 
 		/* 'niveaux'=>'required', */
 		'matricule'=>'required',
 		
@@ -66,8 +66,10 @@ class FormateurController extends Controller
             'cni' => $request->get('cni'),
             'services' => $request->get('services'),
             'diplomes' => $request->get('diplomes'),
+            'niveaux' => $request->get('niveaux'),
             'matricule' => $request->get('matricule'),
             'telephone' => $request->get('telephone'),
+            'services_idservices' => $request->get('services_idservices'),
         ]);
         $formateur->save();
         return redirect('/formateurs')->with('success', 'Nouveau formateur Enregistrer!');
@@ -114,7 +116,7 @@ class FormateurController extends Controller
            
         ]);
 
-        $formateur = Piece::find($idformateurs);
+        $formateur = Formateur::find($idformateurs);
         $formateur->nom =  $request->get('nom');
         $formateur->prenom = $request->get('prenom');
         $formateur->date_naissance=  $request->get('date_naissance');
@@ -123,7 +125,7 @@ class FormateurController extends Controller
         $formateur->services =  $request->get('services');
         $formateur->diplomes =  $request->get('diplomes');
         $formateur->matricule =  $request->get('matricule');
-        $formateur->telephone =  $request->get('telephonez');
+        $formateur->telephone =  $request->get('telephone');
         
         $formateur->save();
 

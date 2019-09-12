@@ -18,22 +18,27 @@
               <form method="POST" action="{{route('pieces.store')}}">
             
                   {{ csrf_field() }}
-                  <div class="form-group">
-                      <label for="input-nom">Nom piéce</label>
-                      <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="Nom du service à ajouter">
-                      <small id="input-nom-help" class="form-text text-muted">
-                          @if ($errors->has('nom'))
-                          <div class="alert alert-danger">
-                              <ul>
-                                  @foreach ($errors->get('nom') as $message)
-                                  <li>{{ $message }}</li>
-                                  @endforeach
-                              </ul>
-                          </div>
-                          @endif
-                      </small>
+                  <div class="form-group col-md-4">
+                        <label for="exampleInputnom">Piéces</label>
+         {{-- <input type="text" name="services" class="form-control" id="exampleInputservices" aria-describedby="servicesHelp" placeholder="Enter le nom du service"> --}}
+       
+                    
+                    <select id="exampleInputnom" name="nom"  class="form-control">
+                      <option value="Certificat de domicile">Certificat de domicile</option>
+                      <option>cni</option>
+                      <option>ATTESTATION</option>
+                      
+                    </select>
+                  {{--   <small id="servicesHelp" class="form-text text-muted">
+                            @if ($errors->has('services'))
+                            @foreach ($errors->get('services') as $message)
+                            <p class="text-danger">{{ $message }}</p>
+                            @endforeach
+                            @endif
+                        </small>  --}}
+                    
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-4">
                     <label for="input-nom">id_formateurs</label>
                     <input type="int" name="formateurs_idformateurs" class="form-control" id="input-formateurs_idformateurs" aria-describedby="formateurs_idformateursHelp" placeholder="id du formateur">
                     <small id="input-formateurs_idformateurs-help" class="form-text text-muted">

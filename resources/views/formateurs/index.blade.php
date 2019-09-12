@@ -1,17 +1,27 @@
 @extends('layout.default')
 @section('content')
 <div class="content">
-    <div class="container-fluid">
+  <div class="container-fluid">
 <div class="row">
-  <div class="col-sm-12">
-      {{-- <h1 class="display-3">Pieces</h1>   --}}  
-    <table class="table table-striped">
-        <div class="card-header card-header-primary">
-            <h4 class="card-title ">Formation Diplomante DRH</h4>
-            <p class="card-category"> 
-                <a href="{{route('pieces.create')}}"><div class="btn btn-warning">Nouveaux formateurs <i class="material-icons">add</i></div></a> 
-            </p>
-          </div>
+<div class="col-sm-12">
+@if ($message = Session::get('success'))
+  <div class="alert alert-success">
+      <p>{{ $message }}</p>
+  </div>
+@endif
+  <div class="card">
+      <div class="card-header card-header-primary">
+          <h4 class="card-title ">Formation Diplomante DRH</h4>
+          <p class="card-category"> 
+              <a href="{{route('formateurs.create')}}"><div class="btn btn-warning">Nouveaux Formateurs <i class="material-icons">add</i></div></a> 
+          </p>
+        </div>
+        
+       
+          
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table" id="table-formateurs">
          
       <thead>
           <tr>
@@ -61,18 +71,61 @@
       </tbody>
       
     </table>
-    <div class="col-sm-12">
-
-      @if(session()->get('success'))
-        <div class="alert alert-success">
-          {{ session()->get('success') }}  
-        </div>
-      @endif
-    </div>
+  </div>
+</div>
   <div>
   </div>
  
 </div>
 </div>
-
+</div>
+</div>
+</div>
+ 
   @endsection
+  @push('scripts')
+ 
+
+      
+  <script type="text/javascript">
+ 
+ var table = $('#table-formateurs').DataTable({
+  "columns": [
+      null, 
+      null,
+      null,
+      null, 
+      null,
+      null,
+      null, 
+      null,
+      null,
+      null, 
+      null,
+      {
+          "sortable": false
+      }
+  ],
+
+   //datables bouto
+ dom: 'Bfrtip',
+    buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+         
+    ],
+    "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ]
+});
+
+
+$('#table-formateurs').on("click", "button", function(){
+console.log($(this).parent());
+table.row($(this).parents('tr')).remove().draw(false);
+
+
+      
+
+}); 
+
+</script>
+@endpush 
+  

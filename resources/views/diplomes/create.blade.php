@@ -17,22 +17,18 @@
               
           <form method="POST" action="{{route('diplomes.store')}}">
                   {{ csrf_field() }}
-                  <div class="form-group">
-                      <label for="input-nom">Nom</label>
-                      <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="Nom du diplome à ajouter">
-                      <small id="input-nom-help" class="form-text text-muted">
-                          @if ($errors->has('nom'))
-                          <div class="alert alert-danger">
-                              <ul>
-                                  @foreach ($errors->get('nom') as $message)
-                                  <li>{{ $message }}</li>
-                                  @endforeach
-                              </ul>
-                          </div>
-                          @endif
-                      </small>
-                  </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-4">
+                        <label for="exampleInputnom">Diplomes</label>
+                 {{--  <input type="text" name="diplomes" class="form-control" id="exampleInputdiplome" aria-describedby="diplomeHelp" placeholder="Enter nom diplome"> --}}
+                  <select id="exampleInputnom" name="nom" class="form-control">
+                          <option value="BTS">BTS</option>
+                          <option>BTS</option>
+                          <option>CAP</option>
+                      
+                        </select>
+                  
+                         </div>
+                  <div class="form-group col-md-4">
                     <label for="input-nom">id_formateurs</label>
                     <input type="int" name="formateurs_idformateurs" class="form-control" id="input-formateurs_idformateurs" aria-describedby="formateurs_idformateursHelp" placeholder="id du formateur">
                     <small id="input-formateurs_idformateurs-help" class="form-text text-muted">

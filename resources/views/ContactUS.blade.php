@@ -1,10 +1,22 @@
 @extends('layout.default')
 @section('content')
- 
+<div class="content">
+  <div class="container-fluid">
+      <div class="card">
+          <div class="card-header card-header-primary">
+              <h4 class="card-title ">Formation Diplomante DRH</h4>
+              <h3 class="card-title">Contactez nous</h3>
+              <p class="card-category">
+                  {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
+                  {{-- <a href="#" target="_blank">full documentation.</a> --}}
+              </p>
+          </div>
+          <div class="card-body">
+              <div class="row pt-5"></div>
 <body>
-<div class="container">
+{{-- <div class="container">
 <h2>Formation diplomante DRH</h2>
-<h1>contactez nous</h1>
+<h1>contactez nous</h1> --}}
 @if(Session::has('success'))
    <div class="alert alert-success">
      {{ Session::get('success') }}
@@ -30,8 +42,12 @@
 <button class="btn btn-success">Contactez-nous!</button>
 </div>
 {!! Form::close() !!}
-</div>
+{{-- </div> --}}
 </body>
+</div>
+</div>
+</div>
+</div>
 
     
         @endsection

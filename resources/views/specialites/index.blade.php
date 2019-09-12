@@ -4,22 +4,25 @@
     <div class="container-fluid">
 <div class="row">
   <div class="col-sm-12">
-      {{-- <h1 class="display-3">Pieces</h1>   --}}  
-    <table class="table table-striped">
+    
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+@endif
+    <div class="card">
         <div class="card-header card-header-primary">
             <h4 class="card-title ">Formation Diplomante DRH</h4>
-            <p class="card-category"> specialites
+            <p class="card-category"> 
                 <a href="{{route('specialites.create')}}"><div class="btn btn-warning">Nouveaux specialites <i class="material-icons">add</i></div></a> 
             </p>
           </div>
-          <div class="col-sm-12">
-
-              @if(session()->get('success'))
-                <div class="alert alert-success">
-                  {{ session()->get('success') }}  
-                </div>
-              @endif
-            </div>
+          
+         
+            
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table" id="table-specialites">
       <thead>
           <tr>
             <td>ID</td>
@@ -52,12 +55,54 @@
           @endforeach
       </tbody>
     </table>
+  </div>
+</div>
   <div>
   </div>
  
 </div>
 </div>
+</div>
+</div>
+</div>
 
   @endsection
+  @push('scripts')
+ 
+
+      
+  <script type="text/javascript">
+ 
+ var table = $('#table-specialites').DataTable({
+  "columns": [
+      null, 
+      null,
+      null,
+      {
+          "sortable": false
+      }
+  ],
+
+   //datables bouto
+ dom: 'Bfrtip',
+    buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+         
+    ],
+    "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ]
+});
+
+$('#table-specialites').on("click", "button", function(){
+console.log($(this).parent());
+table.row($(this).parents('tr')).remove().draw(false);
+
+
+      
+
+}); 
+
+</script>
+@endpush 
+  
   
       

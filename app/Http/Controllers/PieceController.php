@@ -121,19 +121,24 @@ class pieceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Piece $piece
+     * @param int $idpieces
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idpieces)
+    public function destroy( $idpieces)
     {
+   
+        
         $piece = Piece::find($idpieces);
         $piece->delete();
 
-        return redirect('/pieces')->with('success', 'Piece Supprimé!');
-     
-    
-      
+        return redirect('/pieces')->with('success', 'Piéce Supprimé');
+/* 
+      $piece->delete();
+        $message = "suppression" .$piece->nom. 'effectuer avec succes';
+        return redirect()->route('pieces.index')->with(compact('message')); */
     
     }
+ 
+
 }

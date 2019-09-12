@@ -18,23 +18,28 @@
               <form method="POST" action="{{route('services.store')}}">
             
                   {{ csrf_field() }}
-                  <div class="form-group">
-                      <label for="input-nom">Nom etablissement</label>
-                      <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="Nom du service à ajouter">
-                      <small id="input-nom-help" class="form-text text-muted">
-                          @if ($errors->has('nom'))
-                          <div class="alert alert-danger">
-                              <ul>
-                                  @foreach ($errors->get('nom') as $message)
-                                  <li>{{ $message }}</li>
-                                  @endforeach
-                              </ul>
-                          </div>
-                          @endif
-                      </small>
+                  <div class="form-group col-md-4">
+                        <label for="exampleInputnom">Etablissement</label>
+         {{-- <input type="text" name="services" class="form-control" id="exampleInputservices" aria-describedby="servicesHelp" placeholder="Enter le nom du service"> --}}
+       
+                    
+                    <select id="exampleInputnom" name="nom"  class="form-control">
+                      <option value="ENFEFS">ENFEFS</option>
+                      <option>ENFEFS</option>
+                      <option>ENSSEPT</option>
+                      
+                    </select>
+                  {{--   <small id="servicesHelp" class="form-text text-muted">
+                            @if ($errors->has('services'))
+                            @foreach ($errors->get('services') as $message)
+                            <p class="text-danger">{{ $message }}</p>
+                            @endforeach
+                            @endif
+                        </small>  --}}
+                    
                   </div>
-                  <div class="form-group">
-                    <label for="input-nom">Adresse</label>
+                  <div class="form-group col-md-4">
+                    <label for="input-adresse">Adresse</label>
                     <input type="text" name="adresse" class="form-control" id="input-adresse" aria-describedby="adresseHelp" placeholder="Adresse du service">
                     <small id="input-adresse-help" class="form-text text-muted">
                         @if ($errors->has('adresse'))
@@ -48,7 +53,7 @@
                         @endif
                     </small>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-4">
                     <label for="input-telephone">Telephone</label>
                     <input type="number" name="telephone" class="form-control" id="input-telephone" aria-describedby="telephoneHelp" placeholder="Telephone du service">
                     <small id="input-telephone-help" class="form-text text-muted">
