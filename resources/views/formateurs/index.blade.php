@@ -55,16 +55,24 @@
               <td>{{$formateur->telephone}}</td>
               
               <td>
-                  <a href="{{ route('formateurs.edit',$formateur->idformateurs)}}" class="btn btn-primary">Edit</a>
+                  <a href="{{ route('formateurs.edit',$formateur->idformateurs)}}" class="btn btn-primary">
+                      <i class="fa fa-edit"></i>
+                  </a>
               </td>
               <td>
-                  <form action="{{ route('formateurs.destroy', $formateur->idformateurs)}}" method="post">
+                  {{-- <form action="{{ route('formateurs.destroy', $formateur->idformateurs)}}" method="post">
                     @csrf
                     @method('DELETE')
                     
                   
-                   <button class="btn btn-danger" type="submit">Delete</button> 
-                  </form>
+                   <button class="btn btn-danger" type="submit">
+                      <i class="fa fa-trash"></i>
+                  </button> 
+                  </form> --}}
+                  <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$formateur->idformateurs}})" 
+                      data-target="#DeleteModal" class="btn btn-xs btn-danger">
+                    <i class="fa fa-trash"></i>
+                  </a>
               </td>
           </tr>
           @endforeach
@@ -82,11 +90,45 @@
 </div>
 </div>
  
+
+    <!-- Modal content-->
+    <div id="DeleteModal" class="modal fade text-danger" role="dialog">
+        <form action="{{ route('formateurs.destroy', $formateur->idformateurs)}}" id="deleteForm" method="post">
+            <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">etes-vous  sur de supprimer</h5>
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="">appuyer sur close pour annuler</h5>
+                      
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                <div class="modal-body">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                   
+                </div>
+                <div class="modal-footer">
+                    
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Oui, Supprimer</button>
+                    
+                </div>
+            </div>
+          </div>
+        </form>
+      
+     </div>
+
   @endsection
   @push('scripts')
- 
-
-      
   <script type="text/javascript">
  
  var table = $('#table-formateurs').DataTable({
@@ -120,12 +162,24 @@
 $('#table-formateurs').on("click", "button", function(){
 console.log($(this).parent());
 table.row($(this).parents('tr')).remove().draw(false);
-
-
-      
-
 }); 
 
 </script>
+
+<script type="text/javascript">
+  function deleteData(idformateurs)
+  {
+      var idformateurs = idformateurs;
+      var url = '{{ route("formateurs.destroy", ":idformateurs") }}';
+      url = url.replace(':idformateurs', idformateurs);
+      $("#deleteForm").attr('action', url);
+  }
+
+  function formSubmit()
+  {
+      $("#deleteForm").submit();
+  }
+</script>
+
 @endpush 
   

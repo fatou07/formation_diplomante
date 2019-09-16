@@ -26,7 +26,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-       Services
+       Pages
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->

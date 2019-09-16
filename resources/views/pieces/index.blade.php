@@ -49,61 +49,122 @@
               <td>{{$piece->nom}}</td>  
               
               <td>
-                  <a href="{{ route('pieces.edit',$piece->idpieces)}}" class="btn btn-primary">Edit</a>
-              </td>
-              <td>
-
-                  <form action="{{ route('pieces.destroy', $piece->idpieces)}}" method="post" >
+                
+          
+                  <a href="{{ route('pieces.edit',$piece->idpieces)}}" class="btn btn-primary" {{-- data-toggle="modal" data-target="#edit-modal" --}} >
+                      
+                    <i class="fa fa-edit"></i>
+                  </a>
+               </td>
+              <td> 
+               
+                 {{--  <form action="{{ route('pieces.destroy', $piece->idpieces)}}" method="post" >
                     @csrf
                     @method('DELETE')
-                   <button class="btn btn-danger" type="submit">Delete</button> 
-              
-                  </form> 
+                    <button class="btn btn-danger" type="submit" data-toggle="modal" data-target="#delete-modal" >
+                      <i class="fa fa-trash"></i>
+                     </button> 
+                    
+                  </form>  --}}
+                  <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$piece->idpieces}})" 
+                        data-target="#DeleteModal" class="btn btn-xs btn-danger">
+                      <i class="fa fa-trash"></i>
+                    </a>
                 
               </td> 
           </tr>          
           @endforeach
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
+<div>
 </div>
-  <div>
-  </div>
  
 </div>
 </div>
 </div>
 </div>
 </div>
-  {{-- <div class="modal fade" id="modal_delete_piece" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="{{ route('pieces.destroy', $piece->idpieces)}}" method="post" id="modal_delete_piece"  >
-      @csrf
-      @method('DELETE')
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="">etes-vous  sur de supprimer</h5>
-          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-header">
-          <h5 class="modal-title" id="">appuyer sur close pour annuler</h5>
-          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Supprimer</button>
+
+
+
+
+  
+    <!-- Modal content-->
+    <div id="DeleteModal" class="modal fade text-danger" role="dialog">
+    <form action="{{ route('pieces.destroy', $piece->idpieces)}}" id="deleteForm" method="post">
+        <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">etes-vous  sur de supprimer</h5>
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-header">
+                  <h5 class="modal-title" id="">appuyer sur close pour annuler</h5>
+                  
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+            <div class="modal-body">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+               
+            </div>
+            <div class="modal-footer">
+                
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Oui, Supprimer</button>
+                
+            </div>
         </div>
       </div>
+    </form>
+  
+ </div>
+
+{{-- modal edit  --}}
+{{-- <div class="modal fade" id="edit-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="edit-modal">modification d'une piéce</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+           
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{{ route('pieces.update', $piece->idpieces) }}">
+          @method('PATCH') 
+          @csrf
+          <div class="form-group">
+
+              <label for="nom">nom de la piéce</label>
+              <input type="text" class="form-control" name="nom" value={{ $piece->nom }} />
+          </div>
+
+          <div class="form-group">
+              <label for="formateurs_idformateurs">id_formateur</label>
+              <input type="text" class="form-control" name="formateurs_idformateurs" value={{ $piece->formateurs_idformateurs }} />
+          </div> 
+      
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            
+          </div>
+        </form>     
+      </div>
     </div>
-  </form>
-  </div>  --}}
+  </div>
+</div> --}}
+{{-- modal delete --}}
+
   @endsection
   
   @push('scripts')
@@ -122,7 +183,7 @@
       }
   ],
 
-   //datables bouto
+   //datables bouton
  dom: 'Bfrtip',
     buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
@@ -131,22 +192,32 @@
     "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ]
 });
 
-/* $("#table-pieces").off('click','.btn-delete-piece').on('click','.btn-delete-piece',function(){
-        var href=$(this).data('href');
-        $("#form_delete_piece").attr("action",href);
-              
-              $('#modal_delete_piece').modal();
-            });  */
+
 
 $('#table-pieces').on("click", "button", function(){
 console.log($(this).parent());
 table.row($(this).parents('tr')).remove().draw(false);
-
-
-      
+     
 
 }); 
 
-</script>
+ </script>
+  
+  <script type="text/javascript">
+    function deleteData(idpieces)
+    {
+        var idpieces = idpieces;
+        var url = '{{ route("pieces.destroy", ":idpieces") }}';
+        url = url.replace(':idpieces', idpieces);
+        $("#deleteForm").attr('action', url);
+    }
+
+    function formSubmit()
+    {
+        $("#deleteForm").submit();
+    }
+ </script>
+
+
 @endpush 
   

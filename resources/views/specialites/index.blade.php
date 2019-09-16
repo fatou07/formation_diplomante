@@ -40,7 +40,9 @@
              
               
               <td>
-                  <a href="{{ route('specialites.edit',$specialite->idspecialites)}}" class="btn btn-primary">Edit</a>
+                  <a href="{{ route('specialites.edit',$specialite->idspecialites)}}" class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                  </a>
               </td>
               <td>
                   <form action="{{ route('specialites.destroy', $specialite->idspecialites)}}" method="post">
@@ -48,7 +50,9 @@
                     @method('DELETE')
                     
                   
-                   <button class="btn btn-danger" type="submit">Delete</button> 
+                   <button class="btn btn-danger" type="submit">
+                      <i class="fa fa-trash"></i>
+                  </button> 
                   </form>
               </td>
           </tr>

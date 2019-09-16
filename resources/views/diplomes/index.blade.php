@@ -39,7 +39,9 @@
               <td>{{$diplome->nom}}</td>
               
               <td>
-                  <a href="{{ route('diplomes.edit',$diplome->iddiplomes)}}" class="btn btn-primary">edit</a>
+                  <a href="{{ route('diplomes.edit',$diplome->iddiplomes)}}" class="btn btn-primary">
+                      <i class="fa fa-edit"></i>
+                  </a>
               </td>
               <td>
                   <form action="{{ route('diplomes.destroy', $diplome->iddiplomes)}}" method="post">
@@ -47,7 +49,9 @@
                     @method('DELETE')
                     
                   
-                   <button class="btn btn-danger" type="submit">delete</button> 
+                   <button class="btn btn-danger" type="submit">
+                      <i class="fa fa-trash"></i>
+                  </button> 
                   </form>
               </td>
           </tr>
