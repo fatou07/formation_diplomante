@@ -61,12 +61,13 @@
                  {{--  <form action="{{ route('pieces.destroy', $piece->idpieces)}}" method="post" >
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger" type="submit" data-toggle="modal" data-target="#delete-modal" >
+                    <button class="btn btn-danger" type="submit" data-toggle="modal" onclick="deleteData({{$piece->idpieces}})" 
+                        data-target="#DeleteModal">
                       <i class="fa fa-trash"></i>
                      </button> 
                     
                   </form>  --}}
-                  <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$piece->idpieces}})" 
+                  <a href="{{ route('pieces.destroy', $piece->idpieces)}}" data-toggle="modal" onclick="deleteData({{$piece->idpieces}})" 
                         data-target="#DeleteModal" class="btn btn-xs btn-danger">
                       <i class="fa fa-trash"></i>
                     </a>

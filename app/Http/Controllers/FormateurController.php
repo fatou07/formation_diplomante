@@ -72,7 +72,7 @@ class FormateurController extends Controller
             'services_idservices' => $request->get('services_idservices'),
         ]);
         $formateur->save();
-        return redirect('/formateurs')->with('success', 'Nouveau formateur Enregistrer!');
+        return redirect('/formateurs')->with('success', 'formateur modifié!');
         
     }
 
@@ -129,7 +129,7 @@ class FormateurController extends Controller
         
         $formateur->save();
 
-        return redirect('/formateurs')->with('success', 'Nouveau Formateur Enregistrer!');
+        return redirect('/formateurs')->with('success', ' Formateur Enregistré!');
 
 
     }

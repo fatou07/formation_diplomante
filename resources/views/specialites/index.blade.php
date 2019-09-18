@@ -55,7 +55,7 @@
                   </button> 
                   </form> --}}
 
-                  <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$specialite->idspecialites}})" 
+                  <a href="{{ route('specialites.destroy', $specialite->idspecialites)}}" data-toggle="modal" onclick="deleteData({{$specialite->idspecialites}})" 
                       data-target="#DeleteModal" class="btn btn-xs btn-danger">
                     <i class="fa fa-trash"></i>
                   </a>

@@ -59,7 +59,7 @@ class ServiceController extends Controller
             'telephone' => $request->get('telephone'),
         ]);
         $service->save();
-        return redirect('/services')->with('success', 'Nouvelle Service Enregistrer!');
+        return redirect('/services')->with('success', 'Service Enregistrée!');
     }
 
     /**
@@ -112,7 +112,7 @@ class ServiceController extends Controller
         
         $service->save();
 
-        return redirect('/services')->with('success', ' Service Editer!');
+        return redirect('/services')->with('success', ' Service Edité!');
     }
 
     /**
@@ -126,6 +126,6 @@ class ServiceController extends Controller
         $service = Service::find($idservices);
         $service->delete();
 
-        return redirect('/services')->with('success', 'Service deleted!');
+        return redirect('/services')->with('success', 'Service Supprimé!');
     }
 }

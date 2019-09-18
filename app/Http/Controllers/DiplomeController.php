@@ -57,7 +57,7 @@ class DiplomeController extends Controller
            
         ]);
         $diplome->save();
-        return redirect('/diplomes')->with('success', 'Nouveau Diplome Enregistrer!');
+        return redirect('/diplomes')->with('success', 'Diplome Enregistré!');
       
     }
 

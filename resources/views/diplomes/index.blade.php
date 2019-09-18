@@ -44,16 +44,8 @@
                   </a>
               </td>
               <td>
-                 {{--  <form action="{{ route('diplomes.destroy', $diplome->iddiplomes)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    
-                  
-                   <button class="btn btn-danger" type="submit">
-                      <i class="fa fa-trash"></i>
-                  </button> 
-                  </form> --}}
-                  <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$diplome->iddiplomes}})" 
+                 
+                  <a href="{{ route('diplomes.destroy', $diplome->iddiplomes)}}" data-toggle="modal" onclick="deleteData({{$diplome->iddiplomes}})" 
                       data-target="#DeleteModal" class="btn btn-xs btn-danger">
                     <i class="fa fa-trash"></i>
                   </a>

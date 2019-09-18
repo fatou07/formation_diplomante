@@ -55,7 +55,7 @@ class SpecialiteController extends Controller
            
         ]);
         $specialite->save();
-        return redirect('/specialites')->with('success', 'Nouvelle Spécialite Enregistrer!');
+        return redirect('/specialites')->with('success', 'Specialité Enregistrée !');
     }
 
     /**
@@ -105,7 +105,7 @@ class SpecialiteController extends Controller
         
         $specialite->save();
 
-        return redirect('/specialites')->with('success', 'Nouvelle Specialité Enregistrer!');
+        return redirect('/specialites')->with('success', 'Spécialité Modifiée!!');
     }
 
     /**
@@ -119,7 +119,7 @@ class SpecialiteController extends Controller
         $specialite = Specialite::find($idspecialites);
         $specialite->delete();
 
-        return redirect('/specialites')->with('success', 'Specialiteé Supprimer!');
+        return redirect('/specialites')->with('success', 'Specialité Supprimée!');
     }
   
 }

@@ -57,7 +57,7 @@ class pieceController extends Controller
            
         ]);
         $piece->save();
-        return redirect('/pieces')->with('success', 'Nouvelle Piece Enregistrer!');
+        return redirect('/pieces')->with('success', 'Piéce Enregistrée!');
     }
 
     /**
@@ -115,7 +115,7 @@ class pieceController extends Controller
         
         $piece->save();
 
-        return redirect('/pieces')->with('success', 'Nom de Piece Modifié !');
+        return redirect('/pieces')->with('success', 'Piéce Modifiée !');
     }
 
     /**
@@ -132,7 +132,7 @@ class pieceController extends Controller
         $piece = Piece::find($idpieces);
         $piece->delete();
 
-        return redirect('/pieces')->with('success', 'Piéce Supprimé');
+        return redirect('/pieces')->with('success', 'Piéce Supprimée');
 /* 
       $piece->delete();
         $message = "suppression" .$piece->nom. 'effectuer avec succes';

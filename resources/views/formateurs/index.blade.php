@@ -69,7 +69,7 @@
                       <i class="fa fa-trash"></i>
                   </button> 
                   </form> --}}
-                  <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$formateur->idformateurs}})" 
+                  <a href="{{ route('formateurs.destroy', $formateur->idformateurs)}}" data-toggle="modal" onclick="deleteData({{$formateur->idformateurs}})" 
                       data-target="#DeleteModal" class="btn btn-xs btn-danger">
                     <i class="fa fa-trash"></i>
                   </a>
