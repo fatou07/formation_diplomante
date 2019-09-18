@@ -25,9 +25,9 @@
     <hr class="sidebar-divider">
 
      <!-- Nav Item - Pages Collapse Menu -->
-     <li class="nav-item">
+    {{--  <li class="nav-item">
        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        {{--  <i class="fas fa-fw fa-cog"></i> --}}
+        <i class="fas fa-fw fa-cog"></i> 
         <i class="fas fa-fw fa-folder"></i>
          <span>Blogs</span>
        </a>
@@ -43,12 +43,12 @@
 
          </div>
        </div>
-     </li>
+     </li> --}}
 
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-     {{--  <i class="fas fa-fw fa-cog"></i> --}}
+     <i class="fas fa-fw fa-cog"></i> 
      <i class="fas fa-fw fa-folder"></i>
       <span>Listing</span>
     </a>
@@ -62,7 +62,7 @@
     
       </div>
     </div>
-  </li>
+  </li> --}}
 
     <!-- Heading -->
      
