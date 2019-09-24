@@ -11,8 +11,8 @@ $factory->define(App\Formateur::class, function (Faker $faker) {
         'date_naissance' => $faker->dateTime(),
         'lieu_naissance' => $faker->word,
         'cni' => $faker->randomFloat(),
-        'services' => $faker->word,
-        'diplomes' => $faker->word,
+        /* 'services' => $faker->word,
+        'diplomes' => $faker->word, */
         'niveaux' => $faker->word,
         'matricule' => $faker->randomNumber(),
         'telephone' => $faker->randomFloat(),

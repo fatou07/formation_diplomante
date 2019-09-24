@@ -23,6 +23,9 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Specialite extends Eloquent
 {
+	use \Illuminate\Database\Eloquent\SoftDeletes;
+	use \App\Helpers\UuidForkey;
+	
 	protected $primaryKey = 'idspecialites';
 	public $timestamps = false;
 

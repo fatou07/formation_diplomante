@@ -19,8 +19,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property \Carbon\Carbon $date_naissance
  * @property string $lieu_naissance
  * @property int $cni
- * @property string $services
- * @property string $diplomes
+
  * @property string $niveaux
  * @property int $matricule
  * @property int $telephone
@@ -32,8 +31,14 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  *
  * @package App
  */
+
+
 class Formateur extends Eloquent
+
+
 {
+	// use \Illuminate\Database\Eloquent\SoftDeletes;
+	use \App\Helpers\UuidForkey;
 	protected $primaryKey = 'idformateurs';
 	public $timestamps = false;
 
@@ -55,8 +60,7 @@ class Formateur extends Eloquent
 		'date_naissance',
 		'lieu_naissance',
 		'cni',
-		'services',
-		'diplomes',
+
 		'niveaux',
 		'matricule',
 		'telephone',

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Formateur;
+use App\Diplome;
+use App\Service;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -9,7 +11,7 @@ class FormateurController extends Controller
 {
     public function list(Request $request)
     {
-        $formateurs=Formateur::get();
+        $formateurs=Formateur::with('diplomes','service')->get();
         return Datatables::of($formateurs)->make(true);
     }
     /**
@@ -32,7 +34,10 @@ class FormateurController extends Controller
      */
     public function create()
     {
-        return view('formateurs.create');  
+        $diplomes= Diplome::get();
+        $services= Service::get();
+        return view ('formateurs.create',compact('diplomes','service'));
+       /*  return view('formateurs.create');   */
     }
 
     /**
@@ -50,8 +55,7 @@ class FormateurController extends Controller
 		'date_naissance'=>'required',
 		'lieu_naissance'=>'required', 
 		'cni'=>'required',
-		 'services'=>'required',
-		'diplomes'=>'required', 
+		
 		/* 'niveaux'=>'required', */
 		'matricule'=>'required',
 		
@@ -64,8 +68,8 @@ class FormateurController extends Controller
             'date_naissance' => $request->get('date_naissance'),
             'lieu_naissance' => $request->get('lieu_naissance'),
             'cni' => $request->get('cni'),
-            'services' => $request->get('services'),
-            'diplomes' => $request->get('diplomes'),
+           /*  'services' => $request->get('services'),
+            'diplomes' => $request->get('diplomes'), */
             'niveaux' => $request->get('niveaux'),
             'matricule' => $request->get('matricule'),
             'telephone' => $request->get('telephone'),
@@ -122,8 +126,7 @@ class FormateurController extends Controller
         $formateur->date_naissance=  $request->get('date_naissance');
         $formateur->lieu_naissance =  $request->get('lieu_naissance');
         $formateur->cni =  $request->get('cni');
-        $formateur->services =  $request->get('services');
-        $formateur->diplomes =  $request->get('diplomes');
+       
         $formateur->matricule =  $request->get('matricule');
         $formateur->telephone =  $request->get('telephone');
         

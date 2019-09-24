@@ -23,6 +23,9 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Diplome extends Eloquent
 {
+	// use \Illuminate\Database\Eloquent\SoftDeletes;
+	use \App\Helpers\UuidForkey;
+
 	protected $primaryKey = 'iddiplomes';
 	public $timestamps = false;
 

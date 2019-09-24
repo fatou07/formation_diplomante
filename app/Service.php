@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Service extends Eloquent
 {
+	// use \Illuminate\Database\Eloquent\SoftDeletes;
+	use \App\Helpers\UuidForkey;
 	protected $primaryKey = 'idservices';
 	public $timestamps = false;
 

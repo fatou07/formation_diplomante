@@ -87,42 +87,49 @@
                         </small>
                       </div>
                       <div class="form-group col-md-4">
-                            <label for="exampleInputservices">Services</label>
-             {{-- <input type="text" name="services" class="form-control" id="exampleInputservices" aria-describedby="servicesHelp" placeholder="Enter le nom du service"> --}}
-           
-                        
-                        <select id="exampleInputService" name="services"  class="form-control">
-                          <option value="ENFEFS">ENFEFS</option>
-                          <option>ENFEFS</option>
-                          <option>ENSSEPT</option>
+                            <label for="exampleInputnom">Services</label>
+                            <input type="text" name="nom" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="Enter nom">
+                     {{--  <select id="exampleInputnom" name="nom" class="form-control">
+                          @foreach($services as $service)
+                      <option value="{{$service->idservices}}">{{$service->nom}}</option>
+                              @endforeach
                           
-                        </select>
-                        <small id="servicesHelp" class="form-text text-muted">
-                                @if ($errors->has('services'))
-                                @foreach ($errors->get('services') as $message)
-                                <p class="text-danger">{{ $message }}</p>
-                                @endforeach
-                                @endif
-                            </small> 
-                        
-                      </div>
-                      <div class="form-group col-md-4">
-                      <label for="exampleInputdiplome">Diplomes</label>
-               {{--  <input type="text" name="diplomes" class="form-control" id="exampleInputdiplome" aria-describedby="diplomeHelp" placeholder="Enter nom diplome"> --}}
-                <select id="exampleInputdiplome" name="diplomes" class="form-control">
-                        <option value="BTS">BTS</option>
-                        <option>BTS</option>
-                        <option>CAP</option>
-                        {{-- <small id="diplomeHelp" class="form-text text-muted">
-                                @if ($errors->has('diplomes'))
-                                @foreach ($errors->get('diplomes') as $message)
-                                <p class="text-danger">{{ $message }}</p>
-                                @endforeach
-                                @endif
-                            </small> --}}
-                      </select>
-                
-                       </div>
+                            </select> --}}
+                            <small id="input-nom-help" class="form-text text-muted">
+                                    @if ($errors->has('nom'))
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->get('nom') as $message)
+                                            <li>{{ $message }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                </small>
+                      
+                             </div> 
+                     <div class="form-group col-md-4">
+                            <label for="exampleInputnom">Diplomes</label>
+                  
+                      <select id="exampleInputnom" name="nom" class="form-control">
+                          @foreach($diplomes as $diplome)
+                      <option value="{{$diplome->iddiplomes}}">{{$diplome->nom}}</option>
+                              @endforeach
+                          
+                            </select>
+                            <small id="input-nom-help" class="form-text text-muted">
+                                    @if ($errors->has('nom'))
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->get('nom') as $message)
+                                            <li>{{ $message }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                </small>
+                      
+                             </div> 
                       <div class="form-group col-md-2">
                       <label for="exampleInputniveaux">niveaux</label>
                         <input type="text" name="niveaux" class="form-control" id="exampleInputniveaux" aria-describedby="niveauxHelp" placeholder="Enter adresse">
@@ -156,7 +163,7 @@
                         @endif
                     </small>
                 </div>
-                <div class="form-group col-md-2">
+              {{--   <div class="form-group col-md-2">
                         <label for="exampleInputservices_idservices">services_idservices</label>
                         <input type="int" name="services_idservices" class="form-control" id="exampleInputservices_idservices" aria-describedby="services_idservicesHelp" placeholder="Enter id services">
                         <small id="services_idservicesHelp" class="form-text text-muted">
@@ -166,7 +173,7 @@
                             @endforeach
                             @endif
                         </small>
-                    </div>
+                    </div> --}}
                     </div>
                     <div class="form-group">
                       <div class="form-check">

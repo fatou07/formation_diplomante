@@ -42,6 +42,8 @@
       </thead>
       <tbody>
           @foreach($formateurs as $formateur)
+         
+           
           <tr>
               <td>{{$formateur->idformateurs}}</td>
               <td>{{$formateur->nom}}</td>
@@ -49,11 +51,13 @@
               <td>{{$formateur->date_naissance}}</td>
               <td>{{$formateur->lieu_naissance}}</td>
               <td>{{$formateur->cni}}</td>
-              <td>{{$formateur->services}}</td>
+              {{-- <td>{{$formateur.$service->nom}}</td> --}}
+              <td>{{$formateur->service}}</td>
               <td>{{$formateur->diplomes}}</td>
               <td>{{$formateur->matricule}}</td>
               <td>{{$formateur->telephone}}</td>
-              
+
+             
               <td>
                   <a href="{{ route('formateurs.edit',$formateur->idformateurs)}}" class="btn btn-primary">
                       <i class="fa fa-edit"></i>

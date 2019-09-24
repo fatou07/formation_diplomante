@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Piece extends Eloquent
 {
+	use \App\Helpers\UuidForkey;
 	protected $primaryKey = 'idpieces';
 	public $timestamps = false;
 

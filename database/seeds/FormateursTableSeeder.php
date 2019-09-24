@@ -11,6 +11,6 @@ class FormateursTableSeeder extends Seeder
      */
     public function run()
     {
-     factory(\App\Formateur::class, 10)->create();
+     factory(\App\Formateur::class, 10)->create(); 
     }
 }

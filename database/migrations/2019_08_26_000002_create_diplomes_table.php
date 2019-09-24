@@ -25,7 +25,7 @@ class CreateDiplomesTable extends Migration
             $table->increments('iddiplomes');
             $table->char('uuid', 36)->nullable();
             $table->string('nom', 45)->nullable();
-            $table->integer('formateurs_idformateurs')->unsigned();
+            $table->integer('formateurs_idformateurs')->nullable()->unsigned();
 
             $table->index(["formateurs_idformateurs"], 'fk_diplomes_formateurs1_idx');
 

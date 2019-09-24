@@ -33,7 +33,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('services.create');
+     
+        $services= Service::get();
+        return view ('services.create',compact('services'));
     }
 
     /**

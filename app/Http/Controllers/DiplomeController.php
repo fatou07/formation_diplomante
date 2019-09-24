@@ -35,7 +35,9 @@ class DiplomeController extends Controller
     public function create()
     {
        /*  $diplomes = Branch::pluck('name'); */
-        return view ('diplomes.create');
+       $diplomes= Diplome::get();
+        return view ('diplomes.create',compact('diplomes'));
+        
     }
     
     /**
@@ -53,7 +55,7 @@ class DiplomeController extends Controller
 
         $diplome = new Diplome([
             'nom' => $request->get('nom'),
-        'formateurs_idformateurs' => $request->get('formateurs_idformateurs'),
+        /* 'formateurs_idformateurs' => $request->get('formateurs_idformateurs'), */
            
         ]);
         $diplome->save();
@@ -105,7 +107,7 @@ class DiplomeController extends Controller
 
         $diplome = Diplome::find($iddiplomes);
         $diplome->nom =  $request->get('nom');
-        $diplome->formateurs_idformateurs = $request->get('formateurs_idformateurs');
+        /* $diplome->formateurs_idformateurs = $request->get('formateurs_idformateurs'); */
         
         $diplome->save();
 
