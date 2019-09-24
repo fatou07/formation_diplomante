@@ -49,8 +49,7 @@ class FormateurController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom'=>'required',
-            
+            'nom'=>'required',    
 		'prenom'=>'required',
 		'date_naissance'=>'required',
 		'lieu_naissance'=>'required', 
@@ -76,7 +75,7 @@ class FormateurController extends Controller
             'services_idservices' => $request->get('services_idservices'),
         ]);
         $formateur->save();
-        return redirect('/formateurs')->with('success', 'formateur modifié!');
+        return redirect('/formateurs')->with('success', 'formateur Enregistré!');
         
     }
 
@@ -132,7 +131,7 @@ class FormateurController extends Controller
         
         $formateur->save();
 
-        return redirect('/formateurs')->with('success', ' Formateur Enregistré!');
+        return redirect('/formateurs')->with('success', ' Formateur Modifié!');
 
 
     }
