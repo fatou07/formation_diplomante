@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Specialite extends Eloquent
 {
-	use \Illuminate\Database\Eloquent\SoftDeletes;
+	/* use \Illuminate\Database\Eloquent\SoftDeletes; */
 	use \App\Helpers\UuidForkey;
 	
 	protected $primaryKey = 'idspecialites';
@@ -39,8 +39,8 @@ class Specialite extends Eloquent
 		'formateurs_idformateurs'
 	];
 
-	public function formateur()
+	public function formateurs()
 	{
-		return $this->belongsTo(\App\Formateur::class, 'formateurs_idformateurs');
+		return $this->hasMany(\App\Formateur::class, 'specialites_idspecialites');
 	}
 }

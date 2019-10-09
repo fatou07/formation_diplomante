@@ -20,7 +20,7 @@ class ServiceController extends Controller
     public function index()
     {
         /* return view('services.index'); */
-        $services = \App\Service::all();
+        $services = Service::all();
 
         return view ('services.index', compact('services'));
 
@@ -72,7 +72,7 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

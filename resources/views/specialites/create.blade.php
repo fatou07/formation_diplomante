@@ -18,20 +18,28 @@
           <form method="POST" action="{{route('specialites.store')}}">
                   {{ csrf_field() }}
                   <div class="form-group col-md-4">
-                        <label for="exampleInputnom">Specialités</label>
-         {{-- <input type="text" name="services" class="form-control" id="exampleInputservices" aria-describedby="servicesHelp" placeholder="Enter le nom du service"> --}}
-       
-                    
-                    <select id="exampleInputnom" name="nom"  class="form-control">
-                      <option value="Informatique">Informatique</option>
-                      <option>Mecanique</option>
-                      <option>Technique</option>
-                      
-                    </select>
+                    <label for="exampleInputnom">Specialités</label>
+                    <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="nom du spécialité">
+          {{--     <select id="exampleInputnom" name="nom" class="form-control">
+                  @foreach($specialites as $specialite)
+              <option value="{{$specialite->idspecialites}}">{{$specialite->nom}}</option>
+                      @endforeach
                   
-                    
-                  </div>
-                  <div class="form-group col-md-4">
+                    </select> --}}
+                    <small id="input-nom-help" class="form-text text-muted">
+                            @if ($errors->has('nom'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->get('nom') as $message)
+                                    <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                        </small>
+              
+                     </div> 
+                 <div class="form-group col-md-4">
                     <label for="input-nom">id_formateurs</label>
                     <input type="int" name="formateurs_idformateurs" class="form-control" id="input-formateurs_idformateurs" aria-describedby="formateurs_idformateursHelp" placeholder="id du formateur">
                     <small id="input-formateurs_idformateurs-help" class="form-text text-muted">
@@ -45,7 +53,7 @@
                         </div>
                         @endif
                     </small>
-                </div>
+                </div> 
                                     <div class="form-check">
                       <label class="form-check-label">
                           <input class="form-check-input" type="checkbox" value="">

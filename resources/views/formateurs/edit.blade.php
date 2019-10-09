@@ -49,14 +49,14 @@
                 <label for="cni">CNI</label>
                 <input type="int" class="form-control" name="cni" value={{$formateur->cni}} />
             </div> 
-            {{-- <div class="form-group col-md-4">
+           {{--  <div class="form-group col-md-4">
                 <label for="services">services</label>
                 <input type="text" class="form-control" name="services" value={{$formateur->services}} />
-            </div> 
+            </div>  --}}
             <div class="form-group col-md-4">
                 <label for="diplomes">diplomes</label>
                 <input type="text" class="form-control" name="diplomes" value={{$formateur->diplomes}} />
-            </div>  --}}
+            </div>  
             <div class="form-group col-md-4">
                 <label for="matricule">matricule</label>
                 <input type="int" class="form-control" name="matricule" value={{$formateur->matricule}} />

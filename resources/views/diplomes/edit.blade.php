@@ -33,11 +33,11 @@
                 <label for="nom">nom du diplome</label>
                 <input type="text" class="form-control" name="nom" value={{ $diplome->nom }} />
             </div>
-
+{{-- 
             <div class="form-group col-md-4 ">
                 <label for="formateurs_idformateurs">id_formateur</label>
                 <input type="text" class="form-control" name="formateurs_idformateurs" value={{ $diplome->formateurs_idformateurs }} />
-            </div>          
+            </div>           --}}
             <button type="submit" class="btn btn-primary">Enregistrer</button>
             <button type="button" class="btn btn-secondary"  onclick="history.back()" >Annuler</button>
 

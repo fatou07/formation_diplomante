@@ -11,6 +11,6 @@ class SpecialitesTableSeeder extends Seeder
      */
     public function run()
     {
-     factory(\App\Specialite::class, 10)->create();
+     factory(\App\Specialite::class, 5)->create();
     }
 }

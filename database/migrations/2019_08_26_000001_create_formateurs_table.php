@@ -29,8 +29,8 @@ class CreateFormateursTable extends Migration
             $table->date('date_naissance')->nullable();
             $table->string('lieu_naissance', 45)->nullable();
             $table->bigInteger('cni')->nullable();
-           /*  $table->string('services', 20)->nullable();
-            $table->string('diplomes', 20)->nullable(); */
+           /*  $table->string('services', 20)->nullable();*/
+            $table->string('diplomes', 20)->nullable(); 
             $table->string('niveaux', 20)->nullable();
             $table->unsignedInteger('matricule');
             $table->integer('telephone');

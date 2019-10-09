@@ -33,7 +33,9 @@ class SpecialiteController extends Controller
      */
     public function create()
     {
-        return view('specialites.create');
+       return view('specialites.create'); 
+    /*     $specialites= Specialite::get();
+        return view ('specialites.create',compact('specialites')); */
     }
 
     /**

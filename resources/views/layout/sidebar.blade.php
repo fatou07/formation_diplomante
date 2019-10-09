@@ -111,9 +111,9 @@
         </div> --}}
       </div>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-       {{--  <i class="fas fa-fw fa-wrench"></i> --}}
+        <i class="fas fa-fw fa-wrench"></i> 
        <i class="fas fa-fw fa-folder"></i>
         <span>Diplomes</span>
       </a>
@@ -122,18 +122,18 @@
           <h6 class="collapse-header"></h6>
         <a class="collapse-item" href="{{route('diplomes.index')}}">liste des diplomes</a>
           <a class="collapse-item" href="{{route('diplomes.create')}}">ajoutez un diplome</a>
-         {{--  <a class="collapse-item" href="utilities-animation.html">decisionnel</a>
-          <a class="collapse-item" href="utilities-other.html">Other</a> --}}
+         <a class="collapse-item" href="utilities-animation.html">decisionnel</a>
+          <a class="collapse-item" href="utilities-other.html">Other</a> 
         </div>
-       {{--  <div class="bg-white py-2 collapse-inner rounded">
+        <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">technique</h6>
           <a class="collapse-item" href="utilities-color.html">mecanique</a>
           <a class="collapse-item" href="utilities-border.html">electrique</a>
           <a class="collapse-item" href="utilities-animation.html">decisionnel</a>
           <a class="collapse-item" href="utilities-other.html">Other</a>
-        </div> --}}
+        </div> 
       </div>
-    </li>
+    </li> --}}
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
        {{--  <i class="fas fa-fw fa-wrench"></i> --}}

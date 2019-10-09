@@ -60,7 +60,7 @@ class Formateur extends Eloquent
 		'date_naissance',
 		'lieu_naissance',
 		'cni',
-
+		'diplomes',
 		'niveaux',
 		'matricule',
 		'telephone',
@@ -82,8 +82,8 @@ class Formateur extends Eloquent
 		return $this->hasMany(\App\Piece::class, 'formateurs_idformateurs');
 	}
 
-	public function specialites()
+	public function specialite()
 	{
-		return $this->hasMany(\App\Specialite::class, 'formateurs_idformateurs');
+		return $this->belongsTo(\App\Specialite::class, 'specialites_idspecialites');
 	}
 }

@@ -19,26 +19,28 @@
             
                   {{ csrf_field() }}
                   <div class="form-group col-md-4">
-                        <label for="exampleInputnom">Piéces</label>
-         {{-- <input type="text" name="services" class="form-control" id="exampleInputservices" aria-describedby="servicesHelp" placeholder="Enter le nom du service"> --}}
-       
-                    
-                    <select id="exampleInputnom" name="nom"  class="form-control">
-                      <option value="Certificat de domicile">Certificat de domicile</option>
-                      <option>cni</option>
-                      <option>ATTESTATION</option>
-                      
-                    </select>
-                  {{--   <small id="servicesHelp" class="form-text text-muted">
-                            @if ($errors->has('services'))
-                            @foreach ($errors->get('services') as $message)
-                            <p class="text-danger">{{ $message }}</p>
-                            @endforeach
+                    <label for="exampleInputnom">Piéces</label>
+                    <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="nom de la piéce">
+             {{--  <select id="exampleInputnom" name="nom" class="form-control">
+                  @foreach($pieces as $piece)
+              <option value="{{$piece->idpieces}}">{{$piece->nom}}</option>
+                      @endforeach
+                  
+                    </select> --}}
+                    <small id="input-nom-help" class="form-text text-muted">
+                            @if ($errors->has('nom'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->get('nom') as $message)
+                                    <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             @endif
-                        </small>  --}}
-                    
-                  </div>
-                  <div class="form-group col-md-4">
+                        </small>
+              
+                     </div> 
+                   <div class="form-group col-md-4">
                     <label for="input-nom">id_formateurs</label>
                     <input type="int" name="formateurs_idformateurs" class="form-control" id="input-formateurs_idformateurs" aria-describedby="formateurs_idformateursHelp" placeholder="id du formateur">
                     <small id="input-formateurs_idformateurs-help" class="form-text text-muted">
@@ -52,7 +54,7 @@
                         </div>
                         @endif
                     </small>
-                </div> 
+                </div>  
                 
                   <div class="form-check">
                       <label class="form-check-label">

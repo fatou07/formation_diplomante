@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Formateur;
 use App\Diplome;
 use App\Service;
+use App\Piece;
+use App\Specialite;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -11,8 +13,8 @@ class FormateurController extends Controller
 {
     public function list(Request $request)
     {
-        $formateurs=Formateur::with('diplomes','service')->get();
-        return Datatables::of($formateurs)->make(true);
+        $formateur=Formateur::with('service')->get();
+        return Datatables::of($formateur)->make(true);
     }
     /**
      * Display a listing of the resource.
@@ -32,11 +34,17 @@ class FormateurController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $idservices = $request->input('service');
+        $service = Service::find($idservices);
+
+        $idiplomes = $request->input('diplomes');
+        $diplome = Diplome::find($idiplomes);
+
         $diplomes= Diplome::get();
-        $services= Service::get();
-        return view ('formateurs.create',compact('diplomes','service'));
+        
+        return view ('formateurs.create', compact('diplomes','service'));
        /*  return view('formateurs.create');   */
     }
 
@@ -49,32 +57,40 @@ class FormateurController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom'=>'required',    
+        'nom'=>'required',    
 		'prenom'=>'required',
 		'date_naissance'=>'required',
 		'lieu_naissance'=>'required', 
 		'cni'=>'required',
-		
-		/* 'niveaux'=>'required', */
-		'matricule'=>'required',
+		'matricule'=>'required', 
 		
             
         ]);
 
-        $formateur = new Formateur([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'date_naissance' => $request->get('date_naissance'),
-            'lieu_naissance' => $request->get('lieu_naissance'),
-            'cni' => $request->get('cni'),
-           /*  'services' => $request->get('services'),
-            'diplomes' => $request->get('diplomes'), */
-            'niveaux' => $request->get('niveaux'),
-            'matricule' => $request->get('matricule'),
-            'telephone' => $request->get('telephone'),
-            'services_idservices' => $request->get('services_idservices'),
-        ]);
-        $formateur->save();
+        $idservices = $request->input('service');
+        $service = Service::find($idservices);
+
+        $formateur = new Formateur();
+
+            $formateur->nom = $request->get('nom');
+            $formateur->prenom = $request->get('prenom');
+            $formateur->date_naissance = $request->get('date_naissance');
+            $formateur->lieu_naissance = $request->get('lieu_naissance');
+            $formateur->cni = $request->get('cni');
+            $formateur->diplomes = $request->get('diplomes');
+            /* $formateur->niveaux = $request->get('niveaux'); */
+            $formateur->matricule = $request->get('matricule');
+            $formateur->telephone = $request->get('telephone');
+           // $formateur->services_idservices = $request->get('services_idservices');
+           $service->nom = $request->get('nom');
+
+       
+   
+         
+     // $service=Service::find($request->get('services_idservices')); 
+     
+      $service->formateurs()->save($formateur); 
+         // $formateur->save(); 
         return redirect('/formateurs')->with('success', 'formateur Enregistré!');
         
     }
@@ -85,9 +101,11 @@ class FormateurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Formateur $formateur )
     {
-        //
+        $specialites= Specialite::get(); 
+        $pieces= Piece::get(); 
+        return view('formateurs.affichage', compact('formateur','pieces','specialites'));
     }
 
     /**
@@ -100,7 +118,6 @@ class FormateurController extends Controller
     {
         $formateur = Formateur::find($idformateurs);
 
-        /*  $message = 'modifier'.$piece->nom.'Edition effectuée'; */
  
          return view('formateurs.edit')->with(compact('formateur'));
     }

@@ -34,7 +34,9 @@ class pieceController extends Controller
      */
     public function create(Request $request)
     {
-        return view('pieces.create');
+         return view('pieces.create'); 
+/*         $pieces= Piece::get();
+        return view ('pieces.create',compact('pieces')); */
     }
 
     /**
@@ -53,7 +55,7 @@ class pieceController extends Controller
 
         $piece = new Piece([
             'nom' => $request->get('nom'),
-        'formateurs_idformateurs' => $request->get('formateurs_idformateurs'),
+       'formateurs_idformateurs' => $request->get('formateurs_idformateurs'),
            
         ]);
         $piece->save();
@@ -111,7 +113,7 @@ class pieceController extends Controller
 
         $piece = Piece::find($idpieces);
         $piece->nom =  $request->get('nom');
-       $piece->formateurs_idformateurs = $request->get('formateurs_idformateurs');
+      $piece->formateurs_idformateurs = $request->get('formateurs_idformateurs'); 
         
         $piece->save();
 

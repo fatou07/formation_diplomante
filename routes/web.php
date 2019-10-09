@@ -19,9 +19,20 @@ Route::get('/', function () {
 Route::get('/demandes', function () {
     return view('demandes.create');
 });
-/* Route::get('/demandes', function () {
-    return view('demandes.index');
-}); */
+/*  Route::get('/formateurs/selectservice', function () {
+    return view('services.selectservice');
+    
+})->name('services.selectservice'); */
+
+Route::get('/formateurs/selectservice', function () {
+    return view('formateurs.selectservice');
+    
+})->name('formateurs.selectservice');
+
+Route::get('/formateurs/affichage', function () {
+    return view('formateurs.affichage');
+    
+})->name('formateurs.affichage');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

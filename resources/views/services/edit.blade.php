@@ -8,8 +8,10 @@
             <div class="card-header card-header-primary">
                 <h3 class="card-title">Editer Service</h3>
                 <p class="card-category">
-                    {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
-                    {{-- <a href="#" target="_blank">full documentation.</a> --}}
+                    <p class="card-category">
+                        <a target="_blank" href="{{route('layout.default2')}}">Accueil</a>.ou consulter la
+                         <a href="{{route('formateurs.index')}}" target="_blank">liste des formateurs</a> 
+                    </p>
                 </p>
             </div>
 

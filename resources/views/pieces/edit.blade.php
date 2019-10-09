@@ -25,10 +25,10 @@
                 <input type="text" class="form-control" name="nom" value={{ $piece->nom }} />
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="formateurs_idformateurs">id_formateur</label>
                 <input type="text" class="form-control" name="formateurs_idformateurs" value={{ $piece->formateurs_idformateurs }} />
-            </div> 
+            </div>  --}}
 
           
             <button type="submit" class="btn btn-primary">Enregistrer</button>

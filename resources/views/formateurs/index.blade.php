@@ -13,7 +13,7 @@
       <div class="card-header card-header-primary">
           <h4 class="card-title ">Formation Diplomante DRH</h4>
           <p class="card-category"> 
-              <a href="{{route('formateurs.create')}}"><div class="btn btn-warning">Nouveaux Formateurs <i class="material-icons">add</i></div></a> 
+              <a href="{{route('formateurs.selectservice')}}"><div class="btn btn-warning">Nouveaux Formateurs <i class="material-icons">add</i></div></a> 
           </p>
         </div>
         
@@ -51,8 +51,7 @@
               <td>{{$formateur->date_naissance}}</td>
               <td>{{$formateur->lieu_naissance}}</td>
               <td>{{$formateur->cni}}</td>
-              {{-- <td>{{$formateur.$service->nom}}</td> --}}
-              <td>{{$formateur->service}}</td>
+              <td>{{$formateur->service->nom}}</td>            
               <td>{{$formateur->diplomes}}</td>
               <td>{{$formateur->matricule}}</td>
               <td>{{$formateur->telephone}}</td>
@@ -63,6 +62,7 @@
                       <i class="fa fa-edit"></i>
                   </a>
               </td>
+             
               <td>
                   {{-- <form action="{{ route('formateurs.destroy', $formateur->idformateurs)}}" method="post">
                     @csrf
@@ -78,6 +78,11 @@
                     <i class="fa fa-trash"></i>
                   </a>
               </td>
+               <td>
+                <a href="{{ route('formateurs.show',$formateur->idformateurs)}}" class="btn btn-primary">
+                    Afficher
+                </a>
+            </td> 
           </tr>
           @endforeach
       </tbody>
@@ -153,7 +158,7 @@
       }
   ],
 
-   //datables bouto
+   //datables bouton
  dom: 'Bfrtip',
     buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
