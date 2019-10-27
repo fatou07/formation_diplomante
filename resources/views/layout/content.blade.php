@@ -1,10 +1,10 @@
 <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Formation diplomante DRH</h1>
           <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-        </div>
+        </div> --}}
 
         <!-- Content Row -->
         <div class="row">
@@ -15,11 +15,11 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >Earnings (Monthly)</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800" >$40,000</div>
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >FORMATEURS</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" >{{App\Formateur::count()}}</div>
                   </div>
                   <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                   </div>
                 </div>
               </div>
@@ -32,11 +32,11 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">ETABLISSEMENTS</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{App\Service::count()}}</div>
                   </div>
                   <div class="col-auto">
-                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                   </div>
                 </div>
               </div>
@@ -49,10 +49,10 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">PIECES</div>
                     <div class="row no-gutters align-items-center">
                       <div class="col-auto">
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{App\Piece::count()}}</div>
                       </div>
                       <div class="col">
                         <div class="progress progress-sm mr-2">
@@ -75,11 +75,11 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">SPECIALITES</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{App\Specialite::count()}}</div>
                   </div>
                   <div class="col-auto">
-                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                   </div>
                 </div>
               </div>
@@ -93,81 +93,25 @@
 
           <!-- Area Chart -->
           <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                <div class="dropdown no-arrow">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="myAreaChart"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
+           {{--  <div class="card shadow mb-4"> --}}
+         
 
           <!-- Pie Chart -->
           <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-pie pt-4 pb-2">
-                  <canvas id="myPieChart"></canvas>
-                </div>
-                <div class="mt-4 text-center small">
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-primary"></i> Direct
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-success"></i> Social
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-info"></i> Referral
-                  </span>
-                </div>
-              </div>
-            </div>
+          
+          
           </div>
-        </div>
+        </div> 
 
         <!-- Content Row -->
-        <div class="row">
+       {{--  <div class="row"> --}}
 
           <!-- Content Column -->
-          <div class="col-lg-6 mb-4">
+        {{--   <div class="col-lg-6 mb-4"> --}}
 
             <!-- Project Card Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
+          {{--  --}}
+               {{--  <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
               </div>
               <div class="card-body">
@@ -192,10 +136,10 @@
                   <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
-            </div>
+            </div> --}}
 
             <!-- Color System -->
-            <div class="row">
+            {{-- <div class="row">
               <div class="col-lg-6 mb-4">
                 <div class="card bg-primary text-white shadow">
                   <div class="card-body">
@@ -248,9 +192,98 @@
 
           </div>
 
-          <div class="col-lg-6 mb-4">
+          <div class="col-lg-6 mb-4"> --}}
 
             <!-- Illustrations -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">MOT DE LA DIRECTRICE DES RESSOURCES HUMAINES</h6>
+                  
+                </div>
+                <div class="card-body">
+                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+                    <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+                  </div>
+               
+              </div>
+              <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">RECHERCHER UN FORMATEUR</h6>
+                    
+                  </div>
+
+                  
+                  <div class="card-body">
+                     
+                      <p class="card-category"> 
+                          <a href="{{route('formateurs.index')}}"><div class="btn btn-warning"> rechercher un formateur<i class="material-icons"></i></div></a> 
+                      </p>
+
+                    </div>
+                 
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">RECHERCHER UN ETABLISSEMENT</h6>
+                      
+                    </div>
+  
+                    
+                    <div class="card-body">
+                      
+                        <p class="card-category"> 
+                            <a href="{{route('services.index')}}"><div class="btn btn-warning">rechercher un etablissement <i class="material-icons"></i></div></a> 
+                        </p>
+  
+                      </div>
+                   
+                  </div>
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">AJOUT DE SPECIALITE</h6>
+                        
+                      </div>
+    
+                      
+                      <div class="card-body">
+                         
+                          <p class="card-category"> 
+                              <a href="{{route('specialites.index')}}"><div class="btn btn-warning">Nouveaux Spécialités <i class="material-icons">add</i></div></a> 
+                          </p>
+    
+                        </div>
+                     
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">AJOUT DE PIECE</h6>
+                          
+                        </div>
+      
+                        
+                        <div class="card-body">
+                           
+                            <p class="card-category"> 
+                                <a href="{{route('pieces.index')}}"><div class="btn btn-warning">Nouveaux Piéces <i class="material-icons">add</i></div></a> 
+                            </p>
+      
+                          </div>
+                       
+                      </div>
+                      <div class="card shadow mb-4">
+                          <div class="card-header py-3">
+                              <h6 class="m-0 font-weight-bold text-primary">CONTACTEZ NOUS</h6>
+                            
+                          </div>                      
+                          <div class="card-body">
+                             
+                              <p class="card-category"> 
+                                  <a href="{{route('ContactUS')}}"><div class="btn btn-warning">contact US <i class="material-icons">add</i></div></a> 
+                              </p>
+        
+                            </div>
+                         
+                        </div>
             <div class="card shadow mb-4">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
@@ -276,7 +309,7 @@
             </div>
 
           </div>
-        </div>
+        {{-- </div> --}}
 
       </div>
     

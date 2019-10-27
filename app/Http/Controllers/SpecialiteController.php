@@ -20,8 +20,9 @@ class SpecialiteController extends Controller
      */
     public function index()
     {
+       
        /*  return view('specialites.index'); */
-       $specialites = \App\Specialite::all();
+       $specialites = Specialite::all();
 
         return view ('specialites.index', compact('specialites'));
     }
@@ -32,10 +33,10 @@ class SpecialiteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-       return view('specialites.create'); 
-    /*     $specialites= Specialite::get();
-        return view ('specialites.create',compact('specialites')); */
+    {/* 
+       return view('specialites.create');  */
+      $specialites= Specialite::get();
+        return view ('specialites.create',compact('specialites'));
     }
 
     /**
@@ -53,7 +54,7 @@ class SpecialiteController extends Controller
 
         $specialite = new Specialite([
             'nom' => $request->get('nom'),
-        'formateurs_idformateurs' => $request->get('formateurs_idformateurs'),
+        /* 'formateurs_idformateurs' => $request->get('formateurs_idformateurs'), */
            
         ]);
         $specialite->save();
@@ -103,7 +104,7 @@ class SpecialiteController extends Controller
 
         $specialite = Specialite::find($idspecialites);
         $specialite->nom =  $request->get('nom');
-       $specialite->formateurs_idformateurs = $request->get('formateurs_idformateurs');
+    /*    $specialite->formateurs_idformateurs = $request->get('formateurs_idformateurs'); */
         
         $specialite->save();
 

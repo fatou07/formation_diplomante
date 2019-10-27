@@ -41,6 +41,6 @@ class Specialite extends Eloquent
 
 	public function formateurs()
 	{
-		return $this->hasMany(\App\Formateur::class, 'specialites_idspecialites');
+		return $this->belongsTo(\App\Formateur::class, 'formateurs_idformateurs');
 	}
 }

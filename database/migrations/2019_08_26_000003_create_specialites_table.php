@@ -25,7 +25,7 @@ class CreateSpecialitesTable extends Migration
             $table->increments('idspecialites');
             $table->char('uuid', 36)->nullable();
             $table->string('nom', 45)->nullable();
-            $table->integer('formateurs_idformateurs')->unsigned();
+            $table->integer('formateurs_idformateurs')->nullable()->unsigned();
 
             $table->index(["formateurs_idformateurs"], 'fk_specialites_formateurs1_idx');
 

@@ -31,13 +31,14 @@
             <td>date_naissance</td>
             <td>lieu_naissance</td>
             <td>cni</td>
+            <td>specialites</td>
             <td>services</td>
             <td>diplomes</td>
             <td>matricule</td>
             <td>Telephone</td>
             
             
-            <td colspan = 10>Actions</td>
+            <td colspan = 11>Actions</td>
           </tr>
       </thead>
       <tbody>
@@ -51,10 +52,12 @@
               <td>{{$formateur->date_naissance}}</td>
               <td>{{$formateur->lieu_naissance}}</td>
               <td>{{$formateur->cni}}</td>
+              <td>{{$formateur->specialites}}</td>
               <td>{{$formateur->service->nom}}</td>            
               <td>{{$formateur->diplomes}}</td>
               <td>{{$formateur->matricule}}</td>
               <td>{{$formateur->telephone}}</td>
+             
 
              
               <td>
@@ -78,12 +81,13 @@
                     <i class="fa fa-trash"></i>
                   </a>
               </td>
-               <td>
+              <td>
                 <a href="{{ route('formateurs.show',$formateur->idformateurs)}}" class="btn btn-primary">
-                    Afficher
+                    <i class="fas fa-eye"></i>
                 </a>
             </td> 
           </tr>
+          
           @endforeach
       </tbody>
       
@@ -152,6 +156,8 @@
       null,
       null,
       null, 
+      null,
+      null,
       null,
       {
           "sortable": false

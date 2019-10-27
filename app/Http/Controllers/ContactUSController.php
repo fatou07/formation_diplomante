@@ -27,6 +27,6 @@ return view('contactUS');
        $message->from('saquib.gt@gmail.com');
        $message->to('saquib.rizwan@cloudways.com', 'Admin')->subject('Cloudways Feedback');
    }); */
-    return back()->with('success', 'Thanks for contacting us!'); 
+    return back()->with('success', 'Merci de nous avoir contacter!'); 
    }
 }

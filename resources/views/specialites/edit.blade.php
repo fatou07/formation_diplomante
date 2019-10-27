@@ -38,11 +38,11 @@
                 <input type="text" class="form-control" name="nom" value={{ $specialite->nom }} />
             </div>
 
-            <div class="form-group col-md-4">
+          {{--   <div class="form-group col-md-4">
                 <label for="formateurs_idformateurs">id_formateur</label>
                 <input type="text" class="form-control" name="formateurs_idformateurs" value={{ $specialite->formateurs_idformateurs }} />
             </div> 
-
+ --}}
             <div class="form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="">

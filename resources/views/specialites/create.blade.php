@@ -39,7 +39,7 @@
                         </small>
               
                      </div> 
-                 <div class="form-group col-md-4">
+                 {{-- <div class="form-group col-md-4">
                     <label for="input-nom">id_formateurs</label>
                     <input type="int" name="formateurs_idformateurs" class="form-control" id="input-formateurs_idformateurs" aria-describedby="formateurs_idformateursHelp" placeholder="id du formateur">
                     <small id="input-formateurs_idformateurs-help" class="form-text text-muted">
@@ -53,7 +53,7 @@
                         </div>
                         @endif
                     </small>
-                </div> 
+                </div>  --}}
                                     <div class="form-check">
                       <label class="form-check-label">
                           <input class="form-check-input" type="checkbox" value="">

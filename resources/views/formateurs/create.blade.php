@@ -89,20 +89,20 @@
                             @endif
                         </small>
                       </div>
-                     {{--  <div class="form-group col-md-4">
-                            <label for="exampleInputnom">Services</label>
-                             <input type="text" name="nom" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="Enter nom"> 
-                            <select id="exampleInputnom" name="nom" class="form-control">
-                                @foreach($service as $service)
-                            <option value="{{$service->idservices}}">{{$service->nom}}</option>
+                      <div class="form-group col-md-4">
+                            <label for="exampleInputnom">specialites</label>
+                           {{--  <input type="text" name ="nom" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="Enter nom">  --}}
+                            <select id="exampleInputnom" name="specialites.nom" class="form-control">
+                                @foreach($specialites as $specialite)
+                            <option value="{{$specialite->idspecialites}}">{{$specialite->nom}}</option>
                                     @endforeach
                                 
                                   </select>
                             <small id="input-nom-help" class="form-text text-muted">
-                                    @if ($errors->has('nom'))
+                                    @if ($errors->has('specialites.nom'))
                                     <div class="alert alert-danger">
                                         <ul>
-                                            @foreach ($errors->get('nom') as $message)
+                                            @foreach ($errors->get('specialites.nom') as $message)
                                             <li>{{ $message }}</li>
                                             @endforeach
                                         </ul>
@@ -110,7 +110,7 @@
                                     @endif
                                 </small>
                       
-                             </div>  --}}
+                             </div>  
 
 
 

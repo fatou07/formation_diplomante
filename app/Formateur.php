@@ -24,8 +24,10 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property int $matricule
  * @property int $telephone
  * @property int $services_idservices
+ 
  * 
  * @property \App\Service $service
+
  * @property \Illuminate\Database\Eloquent\Collection $pieces
  * @property \Illuminate\Database\Eloquent\Collection $specialites
  *
@@ -46,7 +48,8 @@ class Formateur extends Eloquent
 		'cni' => 'int',
 		'matricule' => 'int',
 		'telephone' => 'int',
-		'services_idservices' => 'int'
+		'services_idservices' => 'int',
+		
 	];
 
 	protected $dates = [
@@ -64,7 +67,8 @@ class Formateur extends Eloquent
 		'niveaux',
 		'matricule',
 		'telephone',
-		'services_idservices'
+		'services_idservices',
+		
 	];
 
 	public function service()
@@ -82,8 +86,8 @@ class Formateur extends Eloquent
 		return $this->hasMany(\App\Piece::class, 'formateurs_idformateurs');
 	}
 
-	public function specialite()
+	public function specialites()
 	{
-		return $this->belongsTo(\App\Specialite::class, 'specialites_idspecialites');
+		return $this->hasMany(\App\Specialite::class, 'formateurs_idformateurs');
 	}
 }

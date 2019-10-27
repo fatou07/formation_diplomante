@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PiecesTableSeeder::class);
         $this->call(DiplomesTableSeeder::class);
         $this->call(FormateursTableSeeder::class);
+        $this->call(NotificationsTableSeeder::class);
     }
 }

@@ -144,7 +144,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header"></h6>
         <a class="collapse-item" href="{{route('formateurs.index')}}">liste des formateurs</a>
-          <a class="collapse-item" href="{{route('formateurs.create')}}">ajoutez un Formateur</a>
+          <a class="collapse-item" href="{{route('formateurs.selectservice')}}">ajoutez un Formateur</a>
          {{--  <a class="collapse-item" href="utilities-animation.html">decisionnel</a>
           <a class="collapse-item" href="utilities-other.html">Other</a> --}}
         </div>
@@ -205,7 +205,7 @@
           <div class="collapse-divider"></div>
           <h6 class="collapse-header">Other Pages:</h6>
         <a class="collapse-item" href="{{route('ContactUS')}}">nous contacter</a>
-          <a class="collapse-item" href="blank.html">blog</a>
+          <a class="collapse-item" href="{{route('layout.cards')}}">blog</a>
         </div>
       </div>
     </li>

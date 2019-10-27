@@ -71,7 +71,7 @@
                         "data": null,
                         "render": function (data, type, row) {
                         url_e =  "{!! route('formateurs.create','service=:idservices')!!}".replace(':idservices', data.idservices);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">Affecter</i></a>';
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="fad fa-pencil-alt">affecter</i></a>';
                         },
                         "targets": 4
                         },

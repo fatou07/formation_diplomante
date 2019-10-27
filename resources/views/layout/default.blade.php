@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     @include('layout.header')
-
+   
 <body id="page-top">
 <!-- inserrer Page Wrapper -->
 
@@ -47,6 +47,7 @@
       </div>
     </div>
   </div>
+ 
 
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>

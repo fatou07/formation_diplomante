@@ -177,7 +177,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Reliese\Coders\CodersServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-        'Collective\Html\HtmlServiceProvider',
+       /*  'Collective\Html\HtmlServiceProvider', */
+        Barryvdh\Snappy\ServiceProvider::class,
+
     ],
 
     /*
@@ -229,6 +231,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+
         
 
 

@@ -12,17 +12,17 @@
 */
 Auth::routes();
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('layout.default2');
 });
 
 Route::get('/demandes', function () {
     return view('demandes.create');
 });
-/*  Route::get('/formateurs/selectservice', function () {
-    return view('services.selectservice');
+Route::get('/layout/cards', function () {
+    return view('layout.cards');
     
-})->name('services.selectservice'); */
+})->name('layout.cards'); 
 
 Route::get('/formateurs/selectservice', function () {
     return view('formateurs.selectservice');
@@ -34,7 +34,7 @@ Route::get('/formateurs/affichage', function () {
     
 })->name('formateurs.affichage');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/default', 'HomeController@index')->name('layout.default');
 Route::get('/default2', 'HomeController@index')->name('layout.default2');
@@ -99,6 +99,7 @@ Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@
     return view('listedemande');
 });
 
+Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');
 
 Route::get('/test2', function () {
     return view('auth.register');
@@ -107,7 +108,10 @@ Route::get('/test2', function () {
 Route::get('/contact-us', 'ContactUSController@contactUS');
 Route::post('/contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
   */
-Auth::routes();
+  
+// Route::get('formateurs/generer', 'FormateurController@pdfview')->name('affichage.pdfview');
+Route::get('formateurs/pdfview', 'FormateurController@pdfview')->name('affichage.pdfview');
+
 
 Route::resource('formateurs', 'FormateurController');
 Route::resource('services', 'ServiceController');
@@ -116,3 +120,10 @@ Route::resource('specialites', 'SpecialiteController');
 Route::resource('pieces', 'PieceController'); 
 
 
+Route::middleware ('auth', 'verified')->group (function () {
+
+    Route::name ('notification.')->prefix('notification')->group(function () {
+        Route::name ('index')->get ('/', 'NotificationController@index');
+        Route::name ('update')->patch ('{notification}', 'NotificationController@update');
+    });
+});

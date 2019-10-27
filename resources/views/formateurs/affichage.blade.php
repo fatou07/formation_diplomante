@@ -1,12 +1,16 @@
-@extends('layout.default')
-@section('content')
+ @extends('layout.default') 
+@section('content') 
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>Gestion de Formation Diplomante</title>
     
+
+    {{-- <link rel="stylesheet" href="#" type="text" media="print" />  --}}
     <style>
+        
     .invoice-box {
         max-width: 800px;
         margin: auto;
@@ -83,7 +87,12 @@
             display: block;
             text-align: center;
         }
+      /*   #impression{
+        display : none;
+      } */
+       
     }
+   
     
     /** RTL **/
     .rtl {
@@ -98,11 +107,40 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-    </style>
-</head>
+    /* #impression{
+        display : none;
+      } */
+    /*   #printBox{
+  text-align:center;
+width: 500px;
+  margin:auto;
+}
 
+.Printbutton{
+  display:inline-block;
+  color:#fff;
+  cursor:pointer;
+  background-color:#3e87ec;
+  padding:20px;
+  margin:5px;
+}
+
+
+@media print {
+  
+  .Printbutton{
+display:none;
+} 
+  
+} */
+    </style>
+   
+    
+</head>
+ 
 <body>
     <div class="invoice-box">
+        <!--startprint-->
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
@@ -222,8 +260,62 @@
                    Total: $385.00
                 </td>
             </tr> --}}
+           
         </table>
+        <!--endprint-->
+               
+        {{-- <ul class="fa-ul">
+            <li><span class="fa-li fa fa-check-square"></span>Vérifier</li>
+            <li><span class="fa-li fa fa-paperclip"></span>Conserver</li>
+            <li><span class="fa-li fa fa-eraser"></span>Effacer</li>
+            <li><span class="fa-li fa fa-print"></span>Imprimer</li>
+          </ul> --}}
+          {{-- <form action="{{route('formateurs.affichage')}}" methode ="post" >
+                <div class="invoice-box">
+
+                <input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer la page" />
+               </div>
+        </form> --}}
+      {{--   <a href="{{ route('formateurs.affichage',['download'=>'pdf']) }}">Télécharger PDF</a> --}}
+        {{-- <div id="printBox">
+  
+                <div class="Printbutton" onclick="myFunction()"  >
+                 Imprimer la page</div>
+                 
+                <script>
+                function myFunction() {
+                    window.print();
+                }
+                  
+                </script>
+                  </div>   --}}
+                 
+    
+                   <div id="btnPrint">
+                  <input  type="button" value="imprimer" onclick="doPrint()" />
+
+                  <script language="JavaScript" type="text/JavaScript">
+                    function doPrint() {
+                    bdhtml=window.document.body.innerHTML;
+                    sprnstr="<!--startprint-->";
+                    eprnstr="<!--endprint-->";
+                    prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+                    prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+                    window.document.body.innerHTML=prnhtml;
+                    window.print();
+                    }
+            </script>
+             </div>
+            
+                  
     </div>
+
+   
+
 </body>
+
+
 </html>
-@endsection
+ @endsection 
+
+
