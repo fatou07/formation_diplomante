@@ -140,7 +140,9 @@ display:none;
  
 <body>
     <div class="invoice-box">
+            
         <!--startprint-->
+        
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
@@ -148,79 +150,144 @@ display:none;
                         <tr>
                             <td>
                                 
-                              <img src="https://img.freepik.com/photos-gratuite/drapeau-senegalais_7594-136.jpg?size=626&ext=jpg"  alt="Ministére de l'emploi et de la formation professionnelle"  height="50" width="50"> 
+                             {{--  <img src="https://img.freepik.com/photos-gratuite/drapeau-senegalais_7594-136.jpg?size=626&ext=jpg"  alt="Ministére de l'emploi et de la formation professionnelle"  height="50" width="50">  --}}
                             {{--   <img src="formateurs/sn.png" height="350" width="400" > --}}
+                            REPUBLIQUE DU SENEGAL<br>
+                            Un peuple - Un But - Une Foi<br>
+                            _____________<br>
+                            Ministére de l'Emploi de la Formation <br>  Professionnelle et de l'Artisanat<br>
+                            _____________<br> 
+                            <h4> {{$formateur->service->nom}}<br><br><br><br></h4>
+                          {{--   <i class="text-center" ></i> --}}
                             
-                                    Ministére de l'emploi et de la formation professionnelle
-                            
+                              <div style='text-align:center' >
+                                <h4><strong style='text-align:center'>  INFORMATIONS GENERALES SUR LA DEMANDE</strong> </h4>
+                                <h5> <strong> Demande de formation : </strong> {{$formateur->type_formation}}</h5>
+                              </div>
+                              <td>
+                                
+                                    <strong> MEFPA/CAB/SG/DRH  </strong>         
+                                        
+                                 </td> 
+                               {{--   <td>Dakar le :</td> --}}  
                          </td>
-                            
-                            <td>
-                                
-                                Nom service : {{$formateur->service->nom}}<br>
-                                
-                            </td>
+                        
                         </tr>
                         
                     </table>
+                    
                 </td>
             </tr>
             
-            <tr class="information">
+            <tr class="information" >
                 <td colspan="2">
                     <table>
                         
                         <tr>
                             <td>
-                              Nom : {{$formateur->nom}} Prenom :{{$formateur->prenom}}<br> 
-                                Date et lieu de Naissance: {{$formateur->date_naissance}} {{$formateur->lieu_naissance}}<br>
-                                Diplomes: {{$formateur->diplomes}}
-                            </td>
-                            
-                            <td>
-                                CNI:  {{$formateur->cni}}        <br> 
-                                Matricule:{{$formateur->matricule}}<br>
-                                Telephone:{{$formateur->telephone}}    <br>
+                          <strong>   NOM : </strong> {{$formateur->nom}}
+                              
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                    <strong> PRENOM : </strong>{{$formateur->prenom}} 
+                            </td>
+                      </tr>
+                      <tr>
+                            <td>
+                          <strong>   E-mail :</strong> {{$formateur->email}}
+                              
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <strong> Adresse : </strong>{{$formateur->adresse}} 
+                            </td>
+                      </tr>
+                      <tr>
+                            <td>
+                                    <strong> DATE ET LIEU DE NAISSANCE :</strong> {{$formateur->date_naissance}} à {{$formateur->lieu_naissance}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <strong> DIPLOME : </strong>{{$formateur->diplomes}}
+                            </td>
+                        </tr>
+                            <tr>
+                            <td>
+                                    <strong> CNI :</strong> {{$formateur->cni}}        <br> 
+                            </td>
+                        </tr>
+                            <tr>
+                            <td>
+                                    <strong> MATRICULE : </strong>{{$formateur->matricule}}<br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <strong> TELEPHONE : </strong>{{$formateur->telephone}}    <br>
+                            </td>
+                        </tr>
+                         {{--    <tr>
+                            <td>
+                                Type de formation:{{$formateur->type_formation}}    <br>
+                            </td>
+                        </tr> --}}
                     </table>
                 </td>
             </tr>
             
             <tr class="heading">
                 <td>
-                    Specialités : 
+                 <strong>   SPECIALITES : </strong>
                 </td>
                 
-                <td>
-                        @foreach ($specialites as $specialite) 
-
-                        {{$specialite->nom}} <br> 
-                          @endforeach  
+                <td>{{$formateur->specialite}} 
                         </td>
             </tr>
-            
-            <tr class="details">
-                <td>
-                   
-                </td>
-                
-                <td>
-                    
-                </td>
+        <tr>
+            <td>
+             </td>
             </tr>
-       
+             <td>
+            </td>
+        <tr>
+            <td>
+            </td>
+        </tr>
+            
             <tr class="heading">
                 <td>
-                    Piéces
+                        <strong> Nom de la piece</strong>
                 </td>
                 
                 <td>
-                        @foreach ($pieces as $piece) 
-
-                        {{$piece->nom}} <br> 
-                          @endforeach
+                        <strong> Fichier joint</strong>
                 </td>
+            
+                 
+            </tr>
+
+
+            @foreach ($formateur->pieces as $piece) 
+
+            <tr class="details">
+                
+                <td>
+          <strong>      {{$piece->nom}} </strong><br> 
+            </td>
+
+                <td>
+
+                {{$piece->fichier}} <br> 
+                </td>
+                <td>
+                     
+                </td>
+                @endforeach
+
             </tr>
           
            {{--  <tr class="item">
@@ -289,8 +356,26 @@ display:none;
                   
                 </script>
                   </div>   --}}
+                  <td>
+                   {{--  <a class="btn btn-primary" href="{{ route('pieces.create')}}" role="button">Ajouter nouvelle piece</a> --}}
+                   
+                  
+                </td> 
+                <td>
+                <div id="noPrint">
+                        <a class="btn btn-primary" href="{{route('pieces.create')}}?formateur={{$formateur->idformateurs}}" role="button">Ajouter pièce</a>
+                    </a>
+
+                     <a class="btn btn-primary" href="{!!route('formateurs.printpdf',['download'=>'pdf','idformateurs'=>$formateur->idformateurs,
+                     'view'=>'formateurs.printpdf',
+                     'name'=>'ficheformateur'])!!}" class="noPrint">Exporter pdf</a>
+                     </a>
+                
+                     {{-- <a href="{{route('formateurs.pdf')}}">Enregistrer en PDF</a> --}}
                  
-    
+                </div>
+            </td> 
+    {{-- 
                    <div id="btnPrint">
                   <input  type="button" value="imprimer" onclick="doPrint()" />
 
@@ -305,7 +390,7 @@ display:none;
                     window.print();
                     }
             </script>
-             </div>
+             </div> --}}
             
                   
     </div>

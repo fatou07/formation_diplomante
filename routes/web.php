@@ -15,6 +15,9 @@ Auth::routes();
 Route::get('/home', function () {
     return view('layout.default2');
 });
+Route::get('/auth/register', function () {
+    return view('auth.register');
+})->name('auth.register');
 
 Route::get('/demandes', function () {
     return view('demandes.create');
@@ -23,16 +26,28 @@ Route::get('/layout/cards', function () {
     return view('layout.cards');
     
 })->name('layout.cards'); 
+Route::get('/formateurs/printpdf','FormateurController@exporterPDF')->name('formateurs.printpdf');
+/* Route::get('/pdf/{formateur}', ['as' => 'formateur.pdf', 'uses' => 'FormateurController@orderPdf']); */
 
 Route::get('/formateurs/selectservice', function () {
     return view('formateurs.selectservice');
     
 })->name('formateurs.selectservice');
 
+Route::get('/formateurs/selectspecialite', function () {
+    return view('formateurs.selectspecialite');
+    
+})->name('formateurs.selectspecialite');
+
 Route::get('/formateurs/affichage', function () {
     return view('formateurs.affichage');
     
 })->name('formateurs.affichage');
+
+Route::get('/services/affichage', function () {
+    return view('services.affichage');
+    
+})->name('services.affichage');
 
 Route::get('/', 'HomeController@index')->name('home');
 

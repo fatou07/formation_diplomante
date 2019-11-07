@@ -6,8 +6,8 @@
   <div class="container-fluid">
       <div class="card">
           <div class="card-header card-header-primary">
-              <h3 class="card-title">Enregistrer un Formateur</h3>
-              <h4>Vous avez choisi le service : {{$service->nom ?? "Aucun service choisi" }}<br/> </h4>
+              <h3 class="card-title" style="color:blue;"><strong>Enregistrement de l'Agent</strong> </h3>
+             <h3> Vous avez choisi le service : <strong> {{$service->nom ?? "Aucun service choisi" }}</strong> </h3>
               <p class="card-category">
                   {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                   {{-- <a href="#" target="_blank">full documentation.</a> --}}
@@ -18,26 +18,29 @@
               
               <form method="POST" action="{{route('formateurs.store')}}">
                   {{ csrf_field() }}
-              <input type="hidden" name="service" value="{{$service->idservices}}" class="form-control" id="input" placeholder="">
-                  <form>
+              <input type="hidden" name="service" value="{{$service->idservices}}" class="form-control" id="input" placeholder=""> 
+         {{-- <input type="hidden" name="specialite" value="{{$specialite->idspecialites}}" class="form-control" id="input" placeholder="">  --}}
+   
+              
+              <form>
                     <div class="form-row">
                       
-                      <div class="form-group col-md-6">
-                        <label for="input-prenom">Prenom </label>
-                        <input type="text" name="prenom" class="form-control" id="input-prenom" aria-describedby="prenomHelp" placeholder="prenom du formateur">
-                      <small id="input-prenom-help" class="form-text text-muted">
-                          @if ($errors->has('prenom'))
-                          <div class="alert alert-danger">
-                              <ul>
-                                  @foreach ($errors->get('prenom') as $message)
-                                  <li>{{ $message }}</li>
-                                  @endforeach
-                              </ul>
-                          </div>
-                          @endif
-                      </small>
-                      </div>
-                      <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
+                                    <label for="input-prenom">Prenom </label>
+                                    <input type="text" name="prenom" class="form-control" id="input-prenom" aria-describedby="prenomHelp" placeholder="prenom du formateur">
+                                  <small id="input-prenom-help" class="form-text text-muted">
+                                      @if ($errors->has('prenom'))
+                                      <div class="alert alert-danger">
+                                          <ul>
+                                              @foreach ($errors->get('prenom') as $message)
+                                              <li>{{ $message }}</li>
+                                              @endforeach
+                                          </ul>
+                                      </div>
+                                      @endif
+                                  </small>
+                                  </div>
+                      <div class="form-group col-md-4">
                         <label for="input-nom">Nom</label>
                         <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="Nom du formateur">
                         <small id="input-nom-help" class="form-text text-muted">
@@ -52,10 +55,25 @@
                             @endif
                         </small>
                       </div>
+                      <div class="form-group col-md-4">
+                            <label for="input-adresse">Adresse </label>
+                            <input type="text" name="adresse" class="form-control" id="input-adresse" aria-describedby="adresseHelp" placeholder="Adresse du formateur">
+                          <small id="input-adresse-help" class="form-text text-muted">
+                              @if ($errors->has('adresse'))
+                              <div class="alert alert-danger">
+                                  <ul>
+                                      @foreach ($errors->get('adresse') as $message)
+                                      <li>{{ $message }}</li>
+                                      @endforeach
+                                  </ul>
+                              </div>
+                              @endif
+                          </small>
+                          </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="exampleInputdate_naissance">date de naissance</label>
+                        <div class="form-group col-md-4">
+                            <label for="exampleInputdate_naissance">Date de naissance</label>
                     <input type="date" name="date_naissance" class="form-control" id="exampleInputdate_naissance" aria-describedby="date_naissanceHelp" placeholder="date de naissance">
                     <small id="date_naissanceHelp" class="form-text text-muted">
                         @if ($errors->has('date_naissance'))
@@ -65,8 +83,8 @@
                         @endif
                     </small>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="exampleInputlieu_naissance">lieu de naissance</label>
+                        <div class="form-group col-md-4">
+                            <label for="exampleInputlieu_naissance">Lieu de naissance</label>
                             <input type="text" name="lieu_naissance" class="form-control" id="exampleInputlieu_naissance" aria-describedby="lieu_naissanceHelp" placeholder="lieu de naissance">
                             <small id="lieu_naissanceHelp" class="form-text text-muted">
                                 @if ($errors->has('lieu_naissance'))
@@ -76,10 +94,21 @@
                                 @endif
                             </small>
                         </div>
+                        <div class="form-group col-md-4">
+                                <label for="exampleInputtelephone">E-mail</label>
+                                <input type="text" name="email" class="form-control" id="exampleInputtelephone" aria-describedby="telephoneHelp" placeholder="Enter e-mail">
+                                <small id="telephoneHelp" class="form-text text-muted">
+                                    @if ($errors->has('email'))
+                                    @foreach ($errors->get('email') as $message)
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @endforeach
+                                    @endif
+                                </small>
+                            </div>
                       </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="exampleInputcni">numero CNI</label>
+                        <label for="exampleInputcni">Numéro CNI</label>
                         <input type="number" name="cni" class="form-control" id="exampleInputcni" aria-describedby="cniHelp" placeholder="Enter cni">
                         <small id="cniHelp" class="form-text text-muted">
                             @if ($errors->has('cni'))
@@ -90,19 +119,15 @@
                         </small>
                       </div>
                       <div class="form-group col-md-4">
-                            <label for="exampleInputnom">specialites</label>
-                           {{--  <input type="text" name ="nom" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="Enter nom">  --}}
-                            <select id="exampleInputnom" name="specialites.nom" class="form-control">
-                                @foreach($specialites as $specialite)
-                            <option value="{{$specialite->idspecialites}}">{{$specialite->nom}}</option>
-                                    @endforeach
-                                
-                                  </select>
+                            <label for="exampleInputnom">Spécialités</label>
+
+                           <input type="text" name ="specialite" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="Enter specialite">
+                            
                             <small id="input-nom-help" class="form-text text-muted">
-                                    @if ($errors->has('specialites.nom'))
+                                    @if ($errors->has('specialite'))
                                     <div class="alert alert-danger">
                                         <ul>
-                                            @foreach ($errors->get('specialites.nom') as $message)
+                                            @foreach ($errors->get('specialite') as $message)
                                             <li>{{ $message }}</li>
                                             @endforeach
                                         </ul>
@@ -111,6 +136,30 @@
                                 </small>
                       
                              </div>  
+                             <div class="form-group col-md-4">
+                                <label for="exampleInputnom">Type de formation</label>
+    
+                               {{-- <input type="text" name ="type_formation" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="Enter type de formation"> --}}
+                               <select  name="type_formation" class="form-control" id="input-nom-help" >                        
+                    
+                                
+                                    <option value="Diplomante">Diplomante</option>
+                                    <option value="Continue">Continue</option>
+                           
+                            </select>
+                                <small id="input-nom-help" class="form-text text-muted">
+                                        @if ($errors->has('type_formation'))
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->get('type_formation') as $message)
+                                                <li>{{ $message }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
+                                    </small>
+                          
+                                 </div>  
 
 
 
@@ -155,8 +204,9 @@
                           @endif
                       </small>
                     </div>
+                    
                     <div class="form-group col-md-2">
-                    <label for="exampleInputtelephone">telephone</label>
+                    <label for="exampleInputtelephone">Téléphone</label>
                     <input type="int" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephoneHelp" placeholder="Enter le numero">
                     <small id="telephoneHelp" class="form-text text-muted">
                         @if ($errors->has('telephone'))
@@ -166,6 +216,8 @@
                         @endif
                     </small>
                 </div>
+               
+       
               {{--   <div class="form-group col-md-2">
                         <label for="exampleInputservices_idservices">services_idservices</label>
                         <input type="int" name="services_idservices" class="form-control" id="exampleInputservices_idservices" aria-describedby="services_idservicesHelp" placeholder="Enter id services">
@@ -189,6 +241,7 @@
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
                     
                 {{--     <button type="button" class="btn btn-danger" action="">Annuler</button> --}}
+              
                   </form>
                  
       

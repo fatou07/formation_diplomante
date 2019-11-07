@@ -1,17 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Piece;
+use App\Formateur;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
 class pieceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function list(Request $request)
     {
-        $piece = Piece::get();
-
+       /*  $piece = Piece::get(); */
+      $piece = Piece::with('formateur')->get();
         return Datatables::of($piece)->make(true);
     }
 
@@ -35,8 +39,18 @@ class pieceController extends Controller
     public function create(Request $request)
     {
         /*  return view('pieces.create'); */ 
-         $pieces= Piece::get();
-         return view ('pieces.create',compact('pieces'));
+        
+       $idformateurs = $request->input('formateur');
+        $formateur = Formateur::find($idformateurs);
+        $formateurs= Formateur::get(); 
+         $piece= Piece::get();
+         
+         $idpieces= $request->input('pieces');
+         $piece = Piece::find($idpieces);
+
+
+     
+         return view ('pieces.create',compact('pieces','formateur'));
 /*         $pieces= Piece::get();
         return view ('pieces.create',compact('pieces')); */
     }
@@ -50,18 +64,38 @@ class pieceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nom'=>'required',
-            
+         $request->validate([
+        'nom' => 'required',
+        'fichier' => 'required',
+    ]);
+    
+    
+ 
+    if ($request->hasFile('fichier')) {
+        $path = $request->file('fichier')->store('folderfile');
+        $fileinfo = $request->file('fichier');
+        $request->merge([
+            'fichier' => $path,
+            'fichier' => $fileinfo->getClientOriginalName(),
         ]);
+    } 
+  
+  $idformateurs = $request->input('formateur'); 
 
-        $piece = new Piece([
-            'nom' => $request->get('nom'),
-      /*  'formateurs_idformateurs' => $request->get('formateurs_idformateurs'), */
-           
-        ]);
-        $piece->save();
-        return redirect('/pieces')->with('success', 'Piéce Enregistrée!');
+    $formateur = Formateur::find($idformateurs);
+    
+    $piece = new Piece();
+    $piece->nom = $request->get('nom');
+    $piece->fichier = $request->get('fichier');
+   
+    $formateur->pieces()->save($piece);
+
+    /*  $piece->save();  */
+     return redirect('/formateurs')->with('success', 'Piéce Enregistrée!');
+     //return redirect()->route('pieces.index')->with('success', 'Piéce Enregistrée!');
+
+     /*    return view ('formateurs.affichage'); */
+     
     }
 
     /**
@@ -73,6 +107,7 @@ class pieceController extends Controller
      */
     public function show(piece $piece)
     {
+       
         
     }
 
@@ -90,7 +125,7 @@ class pieceController extends Controller
 
        /*  $message = 'modifier'.$piece->nom.'Edition effectuée'; */
 
-        return view('pieces.edit')->with(compact('piece'));
+        return view('pieces.edit')->with(compact('piece','formateur'));
       
     }
 
@@ -115,6 +150,7 @@ class pieceController extends Controller
 
         $piece = Piece::find($idpieces);
         $piece->nom =  $request->get('nom');
+        $piece->fichier =  $request->get('fichier');
       /* $piece->formateurs_idformateurs = $request->get('formateurs_idformateurs');  */
         
         $piece->save();
@@ -131,11 +167,11 @@ class pieceController extends Controller
      */
     public function destroy( $idpieces)
     {
-   
         
+         
         $piece = Piece::find($idpieces);
-        $piece->delete();
-
+        $piece->delete(); 
+   
         return redirect('/pieces')->with('success', 'Piéce Supprimée');
 /* 
       $piece->delete();

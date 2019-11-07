@@ -6,7 +6,7 @@
   <div class="container-fluid">
       <div class="card">
           <div class="card-header card-header-primary">
-              <h3 class="card-title">Enregistrer une piece</h3>
+              <h3 class="card-title" style="color:blue;">Enregistrer une piece</h3>
               <p class="card-category">
                   {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                   {{-- <a href="#" target="_blank">full documentation.</a> --}}
@@ -15,9 +15,10 @@
           <div class="card-body">
               <div class="row pt-5"></div>
               
-              <form method="POST" action="{{route('pieces.store')}}">
+              <form method="POST" action="{{route('pieces.store')}}" enctype="multipart/form-data">
             
                   {{ csrf_field() }}
+                  <input type="hidden" name="formateur" value="{{$formateur->idformateurs}}"> 
                   <div class="form-group col-md-4">
                     <label for="exampleInputnom">Piéces</label>
                     <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="nom de la piéce">
@@ -40,6 +41,29 @@
                         </small>
               
                      </div> 
+
+                     <div class="form-group col-md-4">
+                        <label for="exampleInputnom">Piéces</label>
+                        <input type="file" name="fichier" class="form-control" id="input-fichier" aria-describedby="fichierHelp" placeholder="Charger la pièce" multiple>
+              
+                        <small id="input-nom-help" class="form-text text-muted">
+                                @if ($errors->has('fichier'))
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->get('nom') as $message)
+                                        <li>{{ $message }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                            </small>
+                  
+                         </div>
+
+
+
+
+
              {{--       <div class="form-group col-md-4">
                     <label for="input-nom">id_formateurs</label>
                     <input type="int" name="formateurs_idformateurs" class="form-control" id="input-formateurs_idformateurs" aria-describedby="formateurs_idformateursHelp" placeholder="id du formateur">
@@ -66,7 +90,7 @@
                       </label>
                   </div>
                   
-                  <button type="submit" class="btn btn-primary">Enregistrer</button>
+                  <button type="submit" class="btn btn-primary" >Enregistrer</button>
               </form>
               <div class="row justify-content-center">
                   @if ($errors->any())

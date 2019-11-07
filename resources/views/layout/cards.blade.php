@@ -177,38 +177,40 @@
 
               <!-- Collapsable Card Example -->
               <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">
-                   NOUS CONTACTEZ</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                @if(Session::has('success'))
-                <div class="alert alert-success">
-                  {{ Session::get('success') }}
+                  <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">CONTACTEZ NOUS</h6>
+                    
+                  </div>                      
+                  <div class="card-body">
+                     
+                      @if(Session::has('success'))
+                      <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                      </div>
+                   @endif
+                   {!! Form::open(['route'=>'contactus.store']) !!}
+                   <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+                   {!! Form::label('Name:') !!}
+                   {!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Entrer votre nom']) !!}
+                   <span class="text-danger">{{ $errors->first('name') }}</span>
+                   </div>
+                   <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                   {!! Form::label('Email:') !!}
+                   {!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Entrer votre Email']) !!}
+                   <span class="text-danger">{{ $errors->first('email') }}</span>
+                   </div>
+                   <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
+                   {!! Form::label('Message:') !!}
+                   {!! Form::textarea('message', old('message'), ['class'=>'form-control', 'placeholder'=>'Entrer Message']) !!}
+                   <span class="text-danger">{{ $errors->first('message') }}</span>
+                   </div>
+                   <div class="form-group">
+                   <button class="btn btn-success">Contactez-nous!</button>
+                   </div>
+                   {!! Form::close() !!}
+                    </div>
+                 
                 </div>
-             @endif
-             {!! Form::open(['route'=>'contactus.store']) !!}
-             <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-             {!! Form::label('Name:') !!}
-             {!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Entrer votre nom']) !!}
-             <span class="text-danger">{{ $errors->first('name') }}</span>
-             </div>
-             <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-             {!! Form::label('Email:') !!}
-             {!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Entrer votre Email']) !!}
-             <span class="text-danger">{{ $errors->first('email') }}</span>
-             </div>
-             <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
-             {!! Form::label('Message:') !!}
-             {!! Form::textarea('message', old('message'), ['class'=>'form-control', 'placeholder'=>'Entrer Message']) !!}
-             <span class="text-danger">{{ $errors->first('message') }}</span>
-             </div>
-             <div class="form-group">
-             <button class="btn btn-success">Contactez-nous!</button>
-             </div>
-             {!! Form::close() !!}
-              </div>
 
             </div>
 

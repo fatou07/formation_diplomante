@@ -11,6 +11,6 @@ class PiecesTableSeeder extends Seeder
      */
     public function run()
     {
-    factory(\App\Piece::class, 3)->create();
+    factory(\App\Piece::class, 10)->create();
     }
 }

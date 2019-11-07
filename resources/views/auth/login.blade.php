@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>GESTION DEMANDES FORMATION DIPLOMANTE</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,8 +43,8 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">BIENVENUE</h1>
-                  </div>{{--  @extends('layout.default') 
+                      <h1 class="card-title" style="color:blue;"><strong> SE CONNECTER</strong></h1>
+                  </div><br><br> {{--  @extends('layout.default') 
  @section('content') 
 
 <div class="container">
@@ -113,22 +113,10 @@
                 </label>
             </div>
         </div>
-    </div>
+    </div>--}}
 
-    <div class="form-group row mb-0">
-        <div class="col-md-8 offset-md-4">
-            <button type="submit" class="btn btn-primary">
-                {{ __('Login') }}
-            </button>
-
-            @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-            @endif
-        </div>
-    </div>
-</form> --}}
+    
+</form> 
 
 <form class="user" method="POST" action="{{ route('login') }}">
     @csrf
@@ -167,6 +155,20 @@
   <button type="submit" class="btn btn-primary btn-user btn-block">
     {{ __('Login') }}
 </button>
+{{-- <div class="form-group row mb-2">
+    <div class="col-md-8 offset-md-4">
+        
+
+        @if (Route::has('password.request'))
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                {{ __('Forgot Your Password?') }}
+            </a>
+        @endif
+    </div>
+</div> --}}
+{{-- <a class="btn btn-primary btn-user btn-block"  href="{{ route('register') }}">Creer un nouveau compte</a> --}}
+ 
+
 
 {{-- @if (Route::has('password.request'))
     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -174,7 +176,7 @@
     </a>
 @endif
   --}}
-  <hr>
+  
 {{--   <a href="index.html" class="btn btn-google btn-user btn-block">
     <i class="fab fa-google fa-fw"></i> Login with Google
   </a>
@@ -182,13 +184,11 @@
     <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
   </a> --}}
 </form>
-<hr>
-<div class="text-center">
-    <a class="small" href="forgot-password.html">Forgot Password?</a>
-  </div>
-  <div class="text-center">
-    <a class="small"  href="{{ route('register') }}">Creer un nouveau compte</a>
-  </div>
+
+{{-- <div class="text-center">
+    <a class="small" href="{{ route('passwords.reset') }}">Forgot Password?</a>
+  </div> --}}
+
 </div>
 </div>
 </div>

@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Thu, 29 Aug 2019 11:28:36 +0000.
+ * Date: Mon, 28 Oct 2019 11:49:33 +0000.
  */
 
 namespace App;
@@ -23,9 +23,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Diplome extends Eloquent
 {
-	// use \Illuminate\Database\Eloquent\SoftDeletes;
 	use \App\Helpers\UuidForkey;
-
 	protected $primaryKey = 'iddiplomes';
 	public $timestamps = false;
 

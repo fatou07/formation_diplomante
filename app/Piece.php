@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Thu, 29 Aug 2019 11:28:36 +0000.
+ * Date: Mon, 28 Oct 2019 11:49:34 +0000.
  */
 
 namespace App;
@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property int $idpieces
  * @property string $uuid
  * @property string $nom
+ * @property string $fichier
  * @property int $formateurs_idformateurs
  * 
  * @property \App\Formateur $formateur
@@ -34,6 +35,7 @@ class Piece extends Eloquent
 	protected $fillable = [
 		'uuid',
 		'nom',
+		'fichier',
 		'formateurs_idformateurs'
 	];
 

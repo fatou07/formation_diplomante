@@ -8,10 +8,14 @@ use Yajra\Datatables\Datatables;
 
 class SpecialiteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function list(Request $request)
     {
-        $specialites=Specialite::get();
-        return Datatables::of($specialites)->make(true);
+        $specialite=Specialite::get();
+        return Datatables::of($specialite)->make(true);
     }
     /**
      * Display a listing of the resource.

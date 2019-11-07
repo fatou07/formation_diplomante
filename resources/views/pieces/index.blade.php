@@ -19,10 +19,10 @@
 @endif
     <div class="card">
         <div class="card-header card-header-primary">
-            <h4 class="card-title ">Formation Diplomante DRH</h4>
-            <p class="card-category"> 
+            <h4 class="card-title " style="color:blue;"><strong> Liste des piéces enregistrer</strong></h4>
+         {{--    <p class="card-category"> 
                 <a href="{{route('pieces.create')}}"><div class="btn btn-warning">Nouveaux pieces <i class="material-icons">add</i></div></a> 
-            </p>
+            </p> --}}
           </div>
           
          
@@ -32,22 +32,38 @@
                 <table class="table" id="table-pieces">
             <thead >
               <tr>
-              <td>
+             {{--  <td>
                 ID
+              </td> --}}
+              <td>
+                Nom de la piece
               </td>
               <td>
-                Nom
+                Fichier
+              </td>
+              <td>
+                Nom du Formateur
+               </td>
+               <td>
+                Prenom du Formateur
+               </td>
+       
+              <td>
+               Matricule du Formateur
               </td>
       
-                <td colspan = 2>Actions</td>
+                <td colspan = 5>Actions</td>
             </tr>
       </thead>
       <tbody>
         @foreach($pieces as $piece)
           <tr>
-              <td>{{$piece->idpieces}}</td>
+             {{--  <td>{{$piece->idpieces}}</td> --}}
               <td>{{$piece->nom}}</td>  
-              
+              <td>{{$piece->fichier}}</td>
+              <td>{{$piece->formateur->nom}}</td>
+              <td>{{$piece->formateur->prenom}}</td>
+              <td>{{$piece->formateur->matricule}}</td>
               <td>
                 
           
@@ -179,6 +195,10 @@
       null, 
       null,
       null,
+      null,
+      null,
+      null,
+    /*   null, */
       {
           "sortable": false
       }

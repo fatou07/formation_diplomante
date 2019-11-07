@@ -1,5 +1,6 @@
 
-
+@extends('layout.default')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>GESTION DEMANDES FORMATION DIPLOMANTE</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,16 +35,17 @@
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
-            <div class="row">
+            {{-- <div class="row"> --}}
            <!--    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
-           <div class="col-lg-6 d-none d-lg-block">
+         {{--   <div class="col-lg-6 d-none d-lg-block">
 
             <img src="img.jpg"  height="650" width="440">
-           </div>
-              <div class="col-lg-6">
+           </div> --}}
+              <div class="justify-content-center">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">BIENVENUE</h1>
+                    <h2 class="card-title" style="color:blue;"><strong> AJOUTER UN NOUVEAU UTILISATEUR</strong></h2>
+                    
                   </div>
 {{-- page formmmulaire --}}
 
@@ -110,13 +112,17 @@
 
             <button type="submit" class="btn btn-primary btn-user btn-block">
                 {{ __('Register') }}
-            </button>
+            </button> 
+            
+          
+           {{--  <a class="btn btn-primary btn-user btn-block" href="{{ route('login') }}">Se Connecter</a> --}}
+         
     
 </form>
 
 </div>
 </div>
-</div>
+{{-- </div> --}}
 </div>
 </div>
 
@@ -139,3 +145,4 @@
 </body>
 
 </html>
+@endsection

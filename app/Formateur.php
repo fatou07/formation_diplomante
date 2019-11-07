@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Thu, 29 Aug 2019 11:28:36 +0000.
+ * Date: Mon, 28 Oct 2019 11:49:33 +0000.
  */
 
 namespace App;
@@ -16,30 +16,27 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property string $uuid
  * @property string $nom
  * @property string $prenom
+ * @property string $adresse
  * @property \Carbon\Carbon $date_naissance
  * @property string $lieu_naissance
  * @property int $cni
-
- * @property string $niveaux
+ * @property string $diplomes
+ * @property string $specialite
  * @property int $matricule
  * @property int $telephone
+ * @property string $type_formation
+ * @property string $email
  * @property int $services_idservices
- 
+ * @property int $specialites_idspecialites
  * 
  * @property \App\Service $service
-
+ * @property \App\Specialite $specialite
  * @property \Illuminate\Database\Eloquent\Collection $pieces
- * @property \Illuminate\Database\Eloquent\Collection $specialites
  *
  * @package App
  */
-
-
 class Formateur extends Eloquent
-
-
 {
-	// use \Illuminate\Database\Eloquent\SoftDeletes;
 	use \App\Helpers\UuidForkey;
 	protected $primaryKey = 'idformateurs';
 	public $timestamps = false;
@@ -49,7 +46,7 @@ class Formateur extends Eloquent
 		'matricule' => 'int',
 		'telephone' => 'int',
 		'services_idservices' => 'int',
-		
+		'specialites_idspecialites' => 'int'
 	];
 
 	protected $dates = [
@@ -60,20 +57,28 @@ class Formateur extends Eloquent
 		'uuid',
 		'nom',
 		'prenom',
+		'adresse',
 		'date_naissance',
 		'lieu_naissance',
 		'cni',
 		'diplomes',
-		'niveaux',
+		'specialite',
 		'matricule',
 		'telephone',
+		'type_formation',
+		'email',
 		'services_idservices',
-		
+		'specialites_idspecialites',
 	];
 
 	public function service()
 	{
 		return $this->belongsTo(\App\Service::class, 'services_idservices');
+	}
+
+	public function specialite()
+	{
+		return $this->belongsTo(\App\Specialite::class, 'specialites_idspecialites');
 	}
 
 	public function diplomes()
@@ -84,10 +89,5 @@ class Formateur extends Eloquent
 	public function pieces()
 	{
 		return $this->hasMany(\App\Piece::class, 'formateurs_idformateurs');
-	}
-
-	public function specialites()
-	{
-		return $this->hasMany(\App\Specialite::class, 'formateurs_idformateurs');
 	}
 }

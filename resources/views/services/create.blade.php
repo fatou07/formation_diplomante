@@ -6,10 +6,10 @@
   <div class="container-fluid">
       <div class="card">
           <div class="card-header card-header-primary">
-              <h3 class="card-title">Enregistrer un service</h3>
+              <h3 class="card-title" style="color:blue;">Ajouter un établissement</h3>
               <p class="card-category">
                   <a target="_blank" href="{{route('layout.default2')}}">Accueil</a>.ou consulter la
-                   <a href="{{route('formateurs.index')}}" target="_blank">liste des formateurs</a> 
+                   <a href="{{route('services.index')}}" target="_blank">Liste des services</a> 
               </p>
           </div>
           <div class="card-body">

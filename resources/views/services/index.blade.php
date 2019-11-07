@@ -11,11 +11,12 @@
 @endif
     <div class="card">
         <div class="card-header card-header-primary">
-            <h4 class="card-title ">Formation Diplomante DRH</h4>
+            <h4 class="card-title " style="color:blue;"> <strong> Liste des services enrgistrés</strong></h4>
             <p class="card-category"> 
-                <a href="{{route('services.create')}}"><div class="btn btn-warning">Nouveaux services <i class="material-icons">add</i></div></a> 
+                <a href="{{route('formateurs.selectservice')}}"><div class="btn btn-warning">Nouvelle Demande <i class="material-icons">add</i></div></a> 
             </p>
           </div>
+          
           
          
             
@@ -24,9 +25,9 @@
                 <table class="table" id="table-services">
             <thead >
               <tr>
-              <td>
+            {{--   <td>
                 ID
-              </td>
+              </td> --}}
               <td>
                 Nom
               </td>
@@ -37,23 +38,26 @@
                   Telephone
                  </td>
       
-                <td colspan = 4>Actions</td>
+                <td colspan = 3>Actions</td>
             </tr>
       </thead>
       <tbody>
         @foreach($services as $service)
           <tr>
-              <td>{{$service->idservices}}</td>
+            {{--   <td>{{$service->idservices}}</td> --}}
               <td>{{$service->nom}}</td>  
               <td>{{$service->adresse}}</td>  
-              <td>{{$service->telephone}}</td>  
+              <td>{{$service->telephone}}</td>
+                
               
               <td>
                   <a href="{{ route('services.edit',$service->idservices)}}" class="btn btn-primary">
                     <i class="fa fa-edit"></i>
-                  </a>
-              </td>
-              <td>
+                  </td> 
+                {{--   </a><a href="{{ route('services.show',$service->idservices)}}" class="btn btn-primary">
+                      <i class="fas fa-eye"></i>
+                  </a> --}}
+              
 
                   {{-- <form action="{{ route('services.destroy', $service->idservices)}}" method="post" >
                     @csrf
@@ -63,6 +67,7 @@
                   </button> 
               
                   </form>  --}}
+                  <td>
                   <a href="{{ route('services.destroy', $service->idservices)}}" data-toggle="modal" onclick="deleteData({{$service->idservices}})" 
                       data-target="#DeleteModal" class="btn btn-xs btn-danger">
                     <i class="fa fa-trash"></i>
@@ -134,7 +139,8 @@
       null,
       null,
       null,
-      null,
+     /*  null, */
+      
       {
           "sortable": false
       }

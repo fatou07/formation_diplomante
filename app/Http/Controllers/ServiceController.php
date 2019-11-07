@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 use App\Service;
+use App\Formateur;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function list(Request $request)
     {
-        $services=Service::get();
+        
+        
+        $services=Service::with('formateurs')->get();
         return Datatables::of($services)->make(true);
     }
     /**
@@ -70,8 +77,13 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Service $service)
     {
+        $service->formateurs= Service::with('formateurs')->get();
+
+
+       
+       return view('services.affichage', compact('service'));
         
     }
 
@@ -84,10 +96,10 @@ class ServiceController extends Controller
     public function edit($idservices)
     {
         $service = Service::find($idservices);
-
+        $formateurs= Formateur::get();
         /*  $message = 'modifier'.$piece->nom.'Edition effectuée'; */
  
-         return view('services.edit')->with(compact('service'));
+         return view('services.edit')->with(compact('service','formateurs'));
     }
 
     /**

@@ -7,6 +7,10 @@ use Yajra\Datatables\Datatables;
 
 class DiplomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function list(Request $request)
     {

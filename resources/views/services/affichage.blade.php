@@ -11,7 +11,7 @@
 @endif
   <div class="card">
       <div class="card-header card-header-primary">
-          <h4 class="card-title " style="color:blue;"><strong> Liste des formateurs enregistés dans la base</strong> </h4>
+          <h4 class="card-title ">Formation Diplomante DRH</h4>
           <p class="card-category"> 
               <a href="{{route('formateurs.selectservice')}}"><div class="btn btn-warning">Nouveaux Formateurs <i class="material-icons">add</i></div></a> 
           </p>
@@ -25,49 +25,39 @@
          
       <thead>
           <tr>
-            {{-- <td>ID</td> --}}
-            <td>Matricule</td>
+            <td>ID</td>
             <td>Nom</td>
             <td>Prenom</td>
-          {{--   <td>Adresse</td> --}}
-       {{--      <td>date_naissance</td>
-            <td>lieu_naissance</td> --}}
-            <td>CNI</td>
-            <td>Spécialités</td>
-            <td>Services</td>
-            <td>Diplômes</td>  
-            <td>Formation demandée</td>
-            <td>Téléphone</td>
-         {{--    <td>E-mail</td>  --}}
-           {{--  <td>nom</td>
-            <td>fichier</td> --}}
+            <td>date_naissance</td>
+            <td>lieu_naissance</td>
+            <td>cni</td>
+            <td>specialites</td>
+            <td>services</td>
+            <td>diplomes</td>
+            <td>matricule</td>
+            <td>Telephone</td>
             
             
-            <td colspan = 10>Actions</td>
+            <td colspan = 11>Actions</td>
           </tr>
       </thead>
       <tbody>
+          
           @foreach($formateurs as $formateur)
          
+           
           <tr>
-              <td>{{$formateur->matricule}}</td>
-              {{-- <td>{{$formateur->idformateurs}}</td> --}}
+              <td>{{$formateur->idformateurs}}</td>
               <td>{{$formateur->nom}}</td>
               <td>{{$formateur->prenom}}</td>
-             {{--  <td>{{$formateur->adresse}}</td> --}}
-             {{--  <td>{{$formateur->date_naissance}}</td>
-              <td>{{$formateur->lieu_naissance}}</td> --}}
+              <td>{{$formateur->date_naissance}}</td>
+              <td>{{$formateur->lieu_naissance}}</td>
               <td>{{$formateur->cni}}</td>
               <td>{{$formateur->specialite}}</td>
               <td>{{$formateur->service->nom}}</td>            
               <td>{{$formateur->diplomes}}</td>
-            
-              <td>{{$formateur->type_formation}}</td>
+              <td>{{$formateur->matricule}}</td>
               <td>{{$formateur->telephone}}</td>
-            {{--   <td>{{$formateur->email}}</td> --}}
-
-           {{--    <td>{{$formateur->piece->nom}}</td>
-              <td>{{$formateur->piece->fichier}}</td> --}}
              
 
              
@@ -87,16 +77,15 @@
                       <i class="fa fa-trash"></i>
                   </button> 
                   </form> --}}
-                {{--   <a href="{{ route('formateurs.destroy', $formateur->idformateurs)}}" data-toggle="modal" onclick="deleteData({{$formateur->idformateurs}})" 
+                  <a href="{{ route('formateurs.destroy', $formateur->idformateurs)}}" data-toggle="modal" onclick="deleteData({{$formateur->idformateurs}})" 
                       data-target="#DeleteModal" class="btn btn-xs btn-danger">
                     <i class="fa fa-trash"></i>
-                  </a> --}}
+                  </a>
               </td>
               <td>
                 <a href="{{ route('formateurs.show',$formateur->idformateurs)}}" class="btn btn-primary">
                     <i class="fas fa-eye"></i>
-                </a> 
-               
+                </a>
             </td> 
           </tr>
           
@@ -169,9 +158,8 @@
       null,
       null, 
       null,
-     
-     
-     /* null, */
+      null,
+      null,
       {
           "sortable": false
       }

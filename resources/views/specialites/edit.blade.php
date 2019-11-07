@@ -14,6 +14,11 @@
                 <p class="card-category">
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                     {{-- <a href="#" target="_blank">full documentation.</a> --}}
+                    
+                    
+                        <a target="_blank" href="{{route('layout.default2')}}">Accueil</a>.ou consulter la
+                         <a href="{{route('specialites.index')}}" target="_blank">liste des specialites</a> 
+                    
                 </p>
             </div>
 

@@ -43,16 +43,16 @@ class ResetPasswordController extends Controller
         ['token' => $token, 'email' => $request->email]
     );
 }
-public function reset(\Illuminate\Http\Request $request) {
+ public function reset(\Illuminate\Http\Request $request) {
     $this->validate($request, [
         'token' => 'required', 'email' => 'required|email',
         'password' => 'required|confirmed|min:6',
     ]);
-    $response = $this->broker()->reset(
+  /*   $response = $this->broker()->reset(
         $this->credentials($request), function ($user, $password) {
             $this->resetPassword($user, $password);
         }
-    );
- }
+    ); */
+ } 
 
 }

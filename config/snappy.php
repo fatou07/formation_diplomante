@@ -35,8 +35,9 @@ return [
     
     'pdf' => [
         'enabled' => true,
-       /*  'binary'  => '/usr/local/bin/wkhtmltopdf', */
-       'binary' => base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),
+    //    'binary'  => '/usr/local/bin/wkhtmltopdf', 
+        /* 'binary' => base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),*/ // A décommenter cette ligne dans un environnement linux
+      'binary' => '"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf"',  // A commenter cette ligne dans un environnement linux
         'timeout' => false,
         'options' => [],
         'env'     => [],
@@ -45,6 +46,8 @@ return [
     'image' => [
         'enabled' => true,
         'binary'  => '/usr/local/bin/wkhtmltoimage',
+        'binary' => '"C:\Program Files\wkhtmltopdf\bin\wkhtmltoimage"',  // A commenter cette ligne dans un environnement linux
+
         'timeout' => false,
         'options' => [],
         'env'     => [],
