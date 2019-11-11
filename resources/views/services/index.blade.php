@@ -13,7 +13,7 @@
         <div class="card-header card-header-primary">
             <h4 class="card-title " style="color:blue;"> <strong> Liste des services enrgistrés</strong></h4>
             <p class="card-category"> 
-                <a href="{{route('formateurs.selectservice')}}"><div class="btn btn-warning">Nouvelle Demande <i class="material-icons">add</i></div></a> 
+                <a href="{{route('formateurs.selectservice')}}"><div class="btn btn-warning">Nouvelle Demande {{-- <i class="material-icons">add</i> --}}</div></a> 
             </p>
           </div>
           
@@ -68,10 +68,10 @@
               
                   </form>  --}}
                   <td>
-                  <a href="{{ route('services.destroy', $service->idservices)}}" data-toggle="modal" onclick="deleteData({{$service->idservices}})" 
+                {{--   <a href="{{ route('services.destroy', $service->idservices)}}" data-toggle="modal" onclick="deleteData({{$service->idservices}})" 
                       data-target="#DeleteModal" class="btn btn-xs btn-danger">
                     <i class="fa fa-trash"></i>
-                  </a>
+                  </a> --}}
               </td> 
           </tr>          
           @endforeach
@@ -90,7 +90,7 @@
  
  <!-- Modal content-->
  <div id="DeleteModal" class="modal fade text-danger" role="dialog">
-    <form action="{{ route('services.destroy', $service->idservices)}}" id="deleteForm" method="post">
+    <form action="{{ route('services.destroy', $service->idservices ?? "")}}" id="deleteForm" method="post">
         <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -118,7 +118,7 @@
                     <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Oui, Supprimer</button>
                 
             </div>
-        </div>
+        </div> 
       </div>
     </form>
   

@@ -22,9 +22,9 @@
 
 </head>
 
-<body class="bg-gradient-primary">
-
-  <div class="container">
+{{-- <body class="bg-gradient-primary"> --}}
+    <body>
+  {{-- <div class="container"> --}}
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
@@ -38,12 +38,12 @@
            <!--    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
            <div class="col-lg-6 d-none d-lg-block">
 
-            <img src="img.jpg"  height="650" width="440">
+            <img src="img.jpg"  height="650" width="650">
            </div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                      <h1 class="card-title" style="color:blue;"><strong> SE CONNECTER</strong></h1>
+                      <h2 class="card-title" style="color:blue;"><strong> MEFPA-DRH FORMATION</strong></h2>
                   </div><br><br> {{--  @extends('layout.default') 
  @section('content') 
 
@@ -199,7 +199,7 @@
 
 </div>
 
-</div>
+{{-- </div> --}}
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

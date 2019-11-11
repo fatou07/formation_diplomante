@@ -16,7 +16,7 @@ class FormateurController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
+    } 
     public function list(Request $request)
     {
         $formateur=Formateur::with('service','pieces')->get();
@@ -79,7 +79,8 @@ class FormateurController extends Controller
 		'date_naissance'=>'required',
 		'lieu_naissance'=>'required', 
 		'cni'=>'required',
-		'matricule'=>'required', 
+        'matricule'=>'required', 
+        'telephone'=>'required', 
 		
             
         ]);

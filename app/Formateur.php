@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property int $cni
  * @property string $diplomes
  * @property string $specialite
- * @property int $matricule
+ * @property string $matricule
  * @property int $telephone
  * @property string $type_formation
  * @property string $email
@@ -43,7 +43,7 @@ class Formateur extends Eloquent
 
 	protected $casts = [
 		'cni' => 'int',
-		'matricule' => 'int',
+		'matricule' => 'string',
 		'telephone' => 'int',
 		'services_idservices' => 'int',
 		'specialites_idspecialites' => 'int'

@@ -11,7 +11,7 @@
 @endif
   <div class="card">
       <div class="card-header card-header-primary">
-          <h4 class="card-title " style="color:blue;"><strong> Liste des formateurs enregistés dans la base</strong> </h4>
+          <h4 class="card-title " style="color:blue;"><strong> Liste des Demandes enregistés dans la base</strong> </h4>
           <p class="card-category"> 
               <a href="{{route('formateurs.selectservice')}}"><div class="btn btn-warning">Nouveaux Formateurs <i class="material-icons">add</i></div></a> 
           </p>
@@ -118,7 +118,7 @@
 
     <!-- Modal content-->
     <div id="DeleteModal" class="modal fade text-danger" role="dialog">
-        <form action="{{ route('formateurs.destroy', $formateur->idformateurs)}}" id="deleteForm" method="post">
+        <form action="{{ route('formateurs.destroy', $formateur->idformateurs ?? "")}}" id="deleteForm" method="post">
             <div class="modal-dialog " role="document">
             <div class="modal-content">
                 <div class="modal-header">

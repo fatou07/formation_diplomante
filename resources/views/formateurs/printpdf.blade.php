@@ -137,14 +137,16 @@ display:none;
  
 <body>
            
-  
+    <div class="invoice">
         <!--startprint-->
-        <table cellpadding="0" cellspacing="0">
+     {{--    <table cellpadding="0" cellspacing="0"> --}}
             <tr class="top">
                 <td colspan="2">
+                       
                     <table>
                         <tr>
-                            <td>
+                               
+                         <td class="title">
                                 
                              {{--  <img src="https://img.freepik.com/photos-gratuite/drapeau-senegalais_7594-136.jpg?size=626&ext=jpg"  alt="Ministére de l'emploi et de la formation professionnelle"  height="50" width="50">  --}}
                             {{--   <img src="formateurs/sn.png" height="350" width="400" > --}}
@@ -153,79 +155,85 @@ display:none;
                             _____________<br>
                             Ministére de l'Emploi de la Formation<br>  Professionnelle et de l'Artisanat<br>
                             _____________<br> 
+                            <strong> Direction des Ressources Humaines </strong><br>
+                            _____________<br>
                             <h4> {{$formateur->service->nom}}<br><br><br><br></h4>
-                          {{--   <i class="text-center" ></i> --}}
-                            
-                              <div style='text-align:center'>
-                                <h4> <strong>INFORMATIONS GENERALES SUR LA DEMANDE</strong></h4>
-                                <h5> <strong> Demande de formation : </strong>{{$formateur->type_formation}}</h5>
-
-                              </div>
-                              <td>
+                          {{--   <i class="text-center" ></i> --}}   
+                        {{--   <td class="title">
                                 
-                                    <strong> MEFPA/CAB/SG/DRH  </strong>         
                                         
-                                 </td> 
+                                    
+                             </td> --}}
                          </td>
-                          
-                          
-                          
+                         
+                        
+                           
                         </tr>
                         
                     </table>
+                  
                 </td>
-            </tr>
-            
                
+            </tr>
+           
             <tr class="information">
-                    <td colspan="2">
-                        <table>
+            <div class="invoice-box" >
+                    <div style='text-align:center'>
+                      <h4> <strong>INFORMATIONS GENERALES SUR LA DEMANDE</strong></h4>
+                      <h5> <strong> Demande de formation : </strong>{{$formateur->type_formation}}</h5>
+
+                    </div>
+                  </div>
+               <tr><br><br><br><br>
+            <tr class="information">
+                    <td colspan="2" >
+                      {{--   <table> --}}
                             
                             <tr>
-                                <td>
-                              <strong>   NOM : </strong> {{$formateur->nom}}
+                                <td >
+                              <strong>   NOM : </strong> <td style="word-spacing:10px">{{$formateur->nom}}</td>
                                   
                                 </td>
-                            </tr>
+                            </tr><br><br>
                             <tr>
                                 <td>
-                                        <strong> PRENOM : </strong>{{$formateur->prenom}} 
+                                        <strong> PRENOM : </strong> <td style="word-spacing:10px">{{$formateur->prenom}} </td>
                                 </td>
-                          </tr>
+                          </tr><br><br>
                           <tr>
                                 <td>
-                              <strong>   E-mail :</strong> {{$formateur->email}}
+                              <strong>   E-mail :</strong><td style="word-spacing:10px"> {{$formateur->email}} </td>
                                   
                                 </td>
-                            </tr>
+                            </tr><br><br>
                             <tr>
                                 <td>
-                                        <strong> ADRESSE : </strong>{{$formateur->adresse}} 
+                                        <strong> ADRESSE : </strong> <td style="word-spacing:10px">{{$formateur->adresse}} </td>
                                 </td>
-                          </tr>
+                          </tr><br><br>
                           <tr>
                                 <td>
                                         <strong> DATE ET LIEU DE NAISSANCE :</strong> {{$formateur->date_naissance}} à {{$formateur->lieu_naissance}}
                                 </td>
-                            </tr>
+                            </tr><br><br>
                             <tr>
                                 <td>
-                                        <strong> DIPLOME : </strong>{{$formateur->diplomes}}
+                                        <strong> DIPLOME : </strong><td style="word-spacing:10px">{{$formateur->diplomes}} </td>
                                 </td>
-                            </tr>
+                            </tr><br><br>
                                 <tr>
                                 <td>
-                                        <strong> CNI :</strong> {{$formateur->cni}}        <br> 
+                                        <strong> CNI :</strong><td style="word-spacing:10px"> {{$formateur->cni}} </td> <br> 
                                 </td>
-                            </tr>
+                            </tr><br>
                                 <tr>
                                 <td>
-                                        <strong> MATRICULE : </strong>{{$formateur->matricule}}<br>
+                                        <strong> MATRICULE : </strong> <td style="word-spacing:10px">{{$formateur->matricule}} </td><br>
                                 </td>
-                            </tr>
+                            </tr><br>
                             <tr>
                                 <td>
-                                        <strong> TELEPHONE : </strong>{{$formateur->telephone}}    <br>
+                                        <strong> TELEPHONE : </strong><td style="word-spacing:10px">{{$formateur->telephone}} </td><br>
                                 </td>
                             </tr>
                              {{--    <tr>
@@ -233,9 +241,9 @@ display:none;
                                     Type de formation:{{$formateur->type_formation}}    <br>
                                 </td>
                             </tr> --}}
-                        </table>
+                       {{--  </table> --}}
                     </td>
-                </tr>
+                </tr><br>
                 
                 <tr class="heading">
                     <td>
@@ -244,7 +252,7 @@ display:none;
                     
                     <td>{{$formateur->specialite}} 
                             </td>
-                </tr>
+                </tr><br><br>
             <tr>
                 <td>
                  </td>
@@ -258,32 +266,33 @@ display:none;
                 
                 <tr class="heading">
                     <td>
-                            <strong> Nom de la piece</strong>
+                            <strong> PIECES :</strong>
                     </td>
                     
-                    <td>
+                   {{--  <td>
                             <strong> Fichier joint</strong>
+                    </td> --}}
+                    @foreach ($formateur->pieces as $piece) 
+                    <td>
+                        {{$piece->nom}} ,
                     </td>
-                
-                     
-                </tr>
+                    @endforeach
+                </tr><br>
 
-            @foreach ($formateur->pieces as $piece) 
+           
 
             <tr class="details">
                 
-                <td>
-                {{$piece->nom}} <br> 
-            </td>
+               <br> 
 
-                <td>
+               {{-- <td>
 
-                {{$piece->fichier}} <br> 
-                </td>
+                {{$piece->fichier}} 
+                </td> --}}
                 <td>
                      
                 </td>
-                @endforeach
+               
 
             </tr>
           
@@ -325,11 +334,11 @@ display:none;
                 </td>
             </tr> --}}
            
-        </table>
+       {{--  </table> --}}
       
             
-   
-
+   <div>
+  
 
 </body>
 

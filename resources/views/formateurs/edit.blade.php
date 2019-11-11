@@ -108,7 +108,7 @@
                 </div>  
                 <div class="form-group col-md-4">
                     <label for="matricule">Matricule</label>
-                    <input type="int" class="form-control" name="matricule" value={{$formateur->matricule}} />
+                    <input type="text" class="form-control" name="matricule" value={{$formateur->matricule}} />
                 </div> 
                 <div class="form-group col-md-4">
                     <label for="specialite">Spécialité</label>

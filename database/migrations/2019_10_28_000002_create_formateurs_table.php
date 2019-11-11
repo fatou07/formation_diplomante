@@ -33,7 +33,8 @@ class CreateFormateursTable extends Migration
            /*  $table->string('services', 20)->nullable(); */
             $table->string('diplomes', 20)->nullable();
             $table->string('specialite', 20)->nullable();
-            $table->unsignedInteger('matricule');
+          /*   $table->unsignedInteger('matricule'); */
+            $table->string('matricule', 20)->nullable();
             $table->integer('telephone');
             $table->string('type_formation',20)->nullable();
             $table->string('email',40)->nullable();

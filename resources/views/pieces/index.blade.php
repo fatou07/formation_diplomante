@@ -19,7 +19,7 @@
 @endif
     <div class="card">
         <div class="card-header card-header-primary">
-            <h4 class="card-title " style="color:blue;"><strong> Liste des piéces enregistrer</strong></h4>
+            <h4 class="card-title " style="color:blue;"><strong> Liste des piéces enregistrées</strong></h4>
          {{--    <p class="card-category"> 
                 <a href="{{route('pieces.create')}}"><div class="btn btn-warning">Nouveaux pieces <i class="material-icons">add</i></div></a> 
             </p> --}}
@@ -83,10 +83,10 @@
                      </button> 
                     
                   </form>  --}}
-                  <a href="{{ route('pieces.destroy', $piece->idpieces)}}" data-toggle="modal" onclick="deleteData({{$piece->idpieces}})" 
+                <a href="{{ route('pieces.destroy', $piece->idpieces)}}" data-toggle="modal" onclick="deleteData({{$piece->idpieces}})" 
                         data-target="#DeleteModal" class="btn btn-xs btn-danger">
                       <i class="fa fa-trash"></i>
-                    </a>
+                    </a> 
                 
               </td> 
           </tr>          
@@ -110,7 +110,7 @@
   
     <!-- Modal content-->
     <div id="DeleteModal" class="modal fade text-danger" role="dialog">
-    <form action="{{ route('pieces.destroy', $piece->idpieces)}}" id="deleteForm" method="post">
+    <form action="{{ route('pieces.destroy', $piece->idpieces ?? "")}}" id="deleteForm" method="post">
         <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">

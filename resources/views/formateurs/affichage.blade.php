@@ -157,18 +157,19 @@ display:none;
                             _____________<br>
                             Ministére de l'Emploi de la Formation <br>  Professionnelle et de l'Artisanat<br>
                             _____________<br> 
+                            <strong> Direction des Ressources Humaines </strong><br>
+                            _____________<br> 
                             <h4> {{$formateur->service->nom}}<br><br><br><br></h4>
                           {{--   <i class="text-center" ></i> --}}
                             
                               <div style='text-align:center' >
-                                <h4><strong style='text-align:center'>  INFORMATIONS GENERALES SUR LA DEMANDE</strong> </h4>
+                                <h5><strong >  INFORMATIONS GENERALES SUR LA DEMANDE</strong> </h5>
                                 <h5> <strong> Demande de formation : </strong> {{$formateur->type_formation}}</h5>
                               </div>
-                              <td>
-                                
+                           {{--    <td>
                                     <strong> MEFPA/CAB/SG/DRH  </strong>         
                                         
-                                 </td> 
+                                 </td>  --}}
                                {{--   <td>Dakar le :</td> --}}  
                          </td>
                         

@@ -27,7 +27,7 @@
                       
                             <div class="form-group col-md-4">
                                     <label for="input-prenom">Prenom </label>
-                                    <input type="text" name="prenom" class="form-control" id="input-prenom" aria-describedby="prenomHelp" placeholder="prenom du formateur">
+                                    <input type="text" name="prenom" class="form-control" id="input-prenom" aria-describedby="prenomHelp" placeholder="">
                                   <small id="input-prenom-help" class="form-text text-muted">
                                       @if ($errors->has('prenom'))
                                       <div class="alert alert-danger">
@@ -42,7 +42,7 @@
                                   </div>
                       <div class="form-group col-md-4">
                         <label for="input-nom">Nom</label>
-                        <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="Nom du formateur">
+                        <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="nomHelp" placeholder="">
                         <small id="input-nom-help" class="form-text text-muted">
                             @if ($errors->has('nom'))
                             <div class="alert alert-danger">
@@ -57,7 +57,7 @@
                       </div>
                       <div class="form-group col-md-4">
                             <label for="input-adresse">Adresse </label>
-                            <input type="text" name="adresse" class="form-control" id="input-adresse" aria-describedby="adresseHelp" placeholder="Adresse du formateur">
+                            <input type="text" name="adresse" class="form-control" id="input-adresse" aria-describedby="adresseHelp" placeholder="">
                           <small id="input-adresse-help" class="form-text text-muted">
                               @if ($errors->has('adresse'))
                               <div class="alert alert-danger">
@@ -74,7 +74,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputdate_naissance">Date de naissance</label>
-                    <input type="date" name="date_naissance" class="form-control" id="exampleInputdate_naissance" aria-describedby="date_naissanceHelp" placeholder="date de naissance">
+                    <input type="date" name="date_naissance" class="form-control" id="exampleInputdate_naissance" aria-describedby="date_naissanceHelp" placeholder="">
                     <small id="date_naissanceHelp" class="form-text text-muted">
                         @if ($errors->has('date_naissance'))
                         @foreach ($errors->get('date_naissance') as $message)
@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputlieu_naissance">Lieu de naissance</label>
-                            <input type="text" name="lieu_naissance" class="form-control" id="exampleInputlieu_naissance" aria-describedby="lieu_naissanceHelp" placeholder="lieu de naissance">
+                            <input type="text" name="lieu_naissance" class="form-control" id="exampleInputlieu_naissance" aria-describedby="lieu_naissanceHelp" placeholder="">
                             <small id="lieu_naissanceHelp" class="form-text text-muted">
                                 @if ($errors->has('lieu_naissance'))
                                 @foreach ($errors->get('lieu_naissance') as $message)
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group col-md-4">
                                 <label for="exampleInputtelephone">E-mail</label>
-                                <input type="text" name="email" class="form-control" id="exampleInputtelephone" aria-describedby="telephoneHelp" placeholder="Enter e-mail">
+                                <input type="text" name="email" class="form-control" id="exampleInputtelephone" aria-describedby="telephoneHelp" placeholder="">
                                 <small id="telephoneHelp" class="form-text text-muted">
                                     @if ($errors->has('email'))
                                     @foreach ($errors->get('email') as $message)
@@ -109,7 +109,7 @@
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="exampleInputcni">Numéro CNI</label>
-                        <input type="number" name="cni" class="form-control" id="exampleInputcni" aria-describedby="cniHelp" placeholder="Enter cni">
+                        <input type="number" name="cni" class="form-control" id="exampleInputcni" aria-describedby="cniHelp" placeholder="">
                         <small id="cniHelp" class="form-text text-muted">
                             @if ($errors->has('cni'))
                             @foreach ($errors->get('cni') as $message)
@@ -121,7 +121,7 @@
                       <div class="form-group col-md-4">
                             <label for="exampleInputnom">Spécialités</label>
 
-                           <input type="text" name ="specialite" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="Enter specialite">
+                           <input type="text" name ="specialite" class="form-control" id="exampleInputnom" aria-describedby="nomHelp" placeholder="">
                             
                             <small id="input-nom-help" class="form-text text-muted">
                                     @if ($errors->has('specialite'))
@@ -167,7 +167,7 @@
                      
                      <div class="form-group col-md-4">
                             <label for="exampleInputnom">Diplomes</label>
-                            <input type="text" name="diplomes" class="form-control" id="exampleInputdiplome" aria-describedby="nomHelp" placeholder="Enter nom du diplome">
+                            <input type="text" name="diplomes" class="form-control" id="exampleInputdiplome" aria-describedby="nomHelp" placeholder="">
             
                             <small id="input-nom-help" class="form-text text-muted">
                                     @if ($errors->has('diplomes'))
@@ -195,7 +195,7 @@
                       </div> --}}
                       <div class="form-group col-md-2">
                       <label for="exampleInputMatricule">Matricule</label>
-                      <input type="number" name="matricule" class="form-control" id="exampleInputMatricule" aria-describedby="MatriculeHelp" placeholder="Enter le numero de Matricule">
+                      <input type="text" name="matricule" class="form-control" id="exampleInputMatricule" aria-describedby="MatriculeHelp" placeholder="">
                       <small id="MatriculeHelp" class="form-text text-muted">
                           @if ($errors->has('matricule'))
                           @foreach ($errors->get('matricule') as $message)
@@ -207,7 +207,7 @@
                     
                     <div class="form-group col-md-2">
                     <label for="exampleInputtelephone">Téléphone</label>
-                    <input type="int" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephoneHelp" placeholder="Enter le numero">
+                    <input type="int" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephoneHelp" placeholder="">
                     <small id="telephoneHelp" class="form-text text-muted">
                         @if ($errors->has('telephone'))
                         @foreach ($errors->get('telephone') as $message)

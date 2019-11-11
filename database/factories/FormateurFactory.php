@@ -15,7 +15,8 @@ $factory->define(App\Formateur::class, function (Faker $faker) {
         /* 'services' => $faker->word,*/
         'diplomes' => $faker->word, 
         'specialite' => $faker->word,
-        'matricule' => $faker->randomNumber(),
+       /*  'matricule' => $faker->randomNumber(), */
+       'matricule' => $faker->word,
         'telephone' => $faker->randomFloat(),
         'type_formation' => $faker->word,
         'email' => $faker->word,

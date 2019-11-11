@@ -19,6 +19,7 @@ Route::get('/auth/register', function () {
     return view('auth.register');
 })->name('auth.register');
 
+
 Route::get('/demandes', function () {
     return view('demandes.create');
 });
